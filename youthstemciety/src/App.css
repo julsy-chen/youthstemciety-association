@@ -1,5 +1,6 @@
-.App {
+.Homepage {
   text-align: center;
+  margin: 0 0 4vh 0 /* this can be changed in the future, but was used for a more pleasant developing expereince*/
 }
 
 .App-logo {
@@ -49,19 +50,51 @@
   font-style: normal;
 } */
 
-h2 {
+/* h2 {
   font-family: "Noto Serif", serif;
   font-size: 4ch;
   margin: 2vh 0 4vh;
-}
+} */
 
 h3 {
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: normal;
-  font-size: 2.5ch;
+  font-size: 1.5ch;
   margin: 2vh 0 4vh;
 }
 
+.website-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2vh 15vw;
+  padding: 2vh 0;
+  height: 2vh;
+  background-color: #ffffff;
+}
+
+.website-header-logo {
+  width: 4vw;
+  aspect-ratio: 1 / 1;
+}
+
+.website-navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-links {
+  justify-content: end;
+  margin: 0 2vw;
+  text-decoration: none;
+  color: #000000;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: normal;
+}
+
+#navigation-link-blog {
+  margin-right: 0;
+}
 
 .founder-letter-div {
   display: flex;
@@ -72,7 +105,7 @@ h3 {
   background-color: #CBE1D1;
   width: 70vw;
   text-align: left;
-  padding: 2vh 4vw;
+  padding: 2vh 15vw;
 }
 
 .founder-letter-images {
@@ -89,6 +122,133 @@ h3 {
   aspect-ratio: 1 / 1;
   margin: 1vh;
 }
+
+.horizontal-scroll-offered-resources {
+  background-color: rgb(213, 187, 187);
+  display: flex;
+  align-items: center; /* Center vertically */
+  height: 30vh;
+  /* margin: 0 12.5vw; */
+  padding: 1vh 0;
+}
+
+.offered-resources-left-button {
+  margin-left: 20vw;
+  width: 2vw;
+  aspect-ratio: 1/1;
+  background-color: #ffffff;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offered-resources-right-button {
+  margin-right: 20vw;
+  width: 2vw;
+  aspect-ratio: 1/1;
+  background-color: #ffffff;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offered-resources-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.how-to-be-involved-div {
+  /* margin: 0 12.5vw; */
+  background-color: rgb(196, 217, 225);
+}
+
+.volunteer-opportunities {
+  margin: 0 15vw;
+  display: flex;
+  align-items: center;
+}
+
+.volunteer-information {
+  text-align: left;
+  width: 50%
+}
+
+.volunteer-opportunities-image-carousel {
+  width: 50%;
+  text-align: right;
+}
+
+.hiring-opporuntiies {
+  margin: 0 15vw;
+  display: flex;
+  align-items: center;
+}
+
+.hiring-information {
+  text-align: left;
+  width: 50%;
+}
+
+.hiring-post {
+  width: 50%;
+  text-align: right;
+}
+
+.faq {
+  background-color: rgb(223, 235, 223);
+}
+
+.faq-information {
+  display: flex;
+  margin: 0 8vw;
+}
+
+.faq-questions {
+  width: 50%;
+  text-align: left;
+}
+
+.faq-ask-question {
+  width: 50%;
+  justify-content: center;
+
+}
+
+/* Instagram Display */
+
+.instagram-display {
+  background-color: #e8edde;
+  padding: 0 8vw;;
+}
+
+.instagram-profile-banner {
+  display: flex;
+  align-items: center;
+  margin: 0 16vw;
+}
+
+.instagram-profile {
+  margin: 0 2vw;
+}
+
+.instagram-posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.instagram-post {
+  width: 20%;
+  margin: 1vw;
+  aspect-ratio: 1 / 1;
+  background-color: #f0f0f0; /* Placeholder color */
+}
+
+
 
 @keyframes App-logo-spin {
   from {

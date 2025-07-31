@@ -1,39 +1,39 @@
-import elina from './elina.png';
-import anita from './anita.jpg';
-import vanessa from './vanessa.jpg';
+import {useState} from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import './App.css';
 
-function App() {
-return (
-  <div className="App">
-    <div className="homepage-header">
+import WebsiteHeader from './WebsiteHeader.js';
+import Homepage from './pages/HomePage.js';
+import AboutUs from './pages/AboutUs';
+import Programs from './pages/Programs';
+import Resources from './pages/Resources';
+import Blog from './pages/Blog';
 
-    </div>
-    <div className="founder-letter-div"> {/*styling needed*/}
-        <div className="founder-letter">
-          <h2>Letter From Our Founders</h2>
-          <h3>Insert: mission of npo, why & how npo was started, what npo has achieved, what npo HOPES to achieve</h3>
-        </div>
-        <div className ="founder-letter-images">
-          <img src={elina} className="founder-letter-image" alt="logo" />
-          <img src={vanessa} className="founder-letter-image" alt="logo" />
-          <img src={anita} className="founder-letter-image" alt="logo" />
-        </div>
-    </div>
-    <div className="horizontal-scroll-offered-resources">
+export default function App() {
+  const [offeredResourceNumber, setOfferedResourceNumber] = useState(1)
 
-    </div>
-    <div className="how-to-be-involved-div">
+  const offeredResourcesArray = [
+    ["Student Blogs", "this is a description of the student blogs"],
+    ["Mentorship Program", "this is a description of the mentorship program"],
+    ["Study Resources", "this is a description of the study resources"],
+    ["Inclusive Community", "this is a description of the inclusive community"],
+  ]
 
-    </div>
-    <div className="instagram-display">
 
-    </div>
-    <div className="faq">
 
-    </div>
-  </div>
-);
+  return (
+    <>
+      <div>
+        <WebsiteHeader />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/blog" element={<Blog />} />
+        </Routes>
+      </div>
+    </>
+  );
 }
-
-export default App;
