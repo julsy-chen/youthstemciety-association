@@ -1,6 +1,6 @@
 .Homepage {
   text-align: center;
-  margin: 0 0 4vh 0 /* this can be changed in the future, but was used for a more pleasant developing expereince*/
+  margin: 0 20vw 4vh 20vw
 }
 
 .App-logo {
@@ -161,13 +161,14 @@ h3 {
   width: 100%;
 }
 
+/* How To Join Us */
 .how-to-be-involved-div {
   /* margin: 0 12.5vw; */
   background-color: rgb(196, 217, 225);
 }
 
 .volunteer-opportunities {
-  margin: 0 15vw;
+  /* margin: 0 15vw; */
   display: flex;
   align-items: center;
 }
@@ -183,7 +184,7 @@ h3 {
 }
 
 .hiring-opporuntiies {
-  margin: 0 15vw;
+  /* margin: 0 15vw; */
   display: flex;
   align-items: center;
 }

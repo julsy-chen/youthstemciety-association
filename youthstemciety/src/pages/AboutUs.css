@@ -3,6 +3,141 @@
     margin: 0 20vw 4vh 20vw
 }
 
+/* about us introduction */
+.about-us-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-us-information {
+    width: 70%;
+    text-align: left;
+}
+
+.about-us-text {
+    text-align: left;
+    text-wrap: pretty;
+    line-height: 1.75;
+    margin-right: 2vw;
+}
+
+.about-us-stats {
+    display: flex;
+    font-weight: bold;
+}
+
+.about-us-followers-stat {
+    margin-left: 2vw;
+}
+
+.about-us-accounts-reached-stat {
+    margin-left: 4vw;
+}
+
+.about-us-img {
+    width: 30vw;
+    height: auto;
+    background-color: #686868;
+}
+
+/* listed offered resources */
 .listed-offered-resources-information {
     display: flex;
+}
+
+.listed-offered-resource-information {
+    width: 25%;
+    padding: 0 2vw;
+    text-wrap: pretty;
+}
+
+.listed-offered-resource-img {
+    aspect-ratio: 1/1;
+    background-color: #686868;
+    align-self: center;
+}
+
+#mentorship-program-information {
+    padding-left: 0;
+}
+
+#inclusive-community-information {
+    padding-right: 0;
+}
+
+/* meet our founders */
+.meet-our-founders-information {
+    display: flex;
+}
+
+.founder-information {
+    width: calc(100%/3);
+    padding: 0 2vw;
+    text-wrap: pretty;
+    user-select: none;
+}
+
+.founder-information:hover .founder-introduction-div {
+    display: block;
+}
+
+.founder-visual {
+    position: relative;
+    width: 100%;
+}
+
+.founder-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: #686868;
+    align-self: center;
+}
+
+.founder-introduction-div {
+    display: none;
+    width: 65%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0;
+}
+
+.founder-introduction-div p {
+    margin: 3vh 2vw;
+    text-align: right;
+    text-wrap: pretty;
+    vertical-align: middle;
+    line-height: 1.5;
+    color: #333;
+}
+
+#meet-elina {
+    padding-left: 0;
+}
+
+#meet-anita {
+    padding-right: 0;
+}
+
+/* our history */
+.our-history-information {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.our-history-text {
+    width: 55%;
+    text-align: left;
+    text-wrap: pretty;
+    line-height: 1.75;
+}
+
+.our-history-img {
+    width: 40%;
+    height: 25vh;
+    background-color: #686868;
 }
