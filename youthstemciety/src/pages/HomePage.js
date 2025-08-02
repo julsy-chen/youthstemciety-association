@@ -27,17 +27,16 @@ export default function Homepage() {
       <div className="founder-letter-div"> {/*styling needed*/}
           <div className="founder-letter">
             <h2>Letter From Our Founders</h2>
-            <h3>Insert: mission of npo, why & how npo was started, what npo has achieved, what npo HOPES to achieve</h3>
+            <h3 className="founder-letter-text">Insert: mission of npo, why & how npo was started, what npo has achieved, what npo HOPES to achieve</h3>
           </div>
-          <div className ="founder-letter-images">
-            <img src={elina} className="founder-letter-image" alt="elina" />
-            <img src={vanessa} className="founder-letter-image" alt="vanessa" />
-            <img src={anita} className="founder-letter-image" alt="anita" />
+          <div className ="founder-letter-image-collection">
+            <img src={elina} className="founder-letter-image" id="elina-image" alt="elina" />
+            <img src={vanessa} className="founder-letter-image" id="vanessa-image" alt="vanessa" />
+            <img src={anita} className="founder-letter-image" id="anita-image" alt="anita" />
           </div>
       </div>
 
       <div className="horizontal-scroll-offered-resources"> {/*styling needed*/}
-
         <div className="offered-resources-left-button">
           <button>
             LEFT
