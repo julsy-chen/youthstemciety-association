@@ -1,35 +1,73 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState } from 'react';
+
 import logo from '../images/logo.jpg';
 
 export default function WebsiteHeader() {
+    const [isAboutActive, setIsAboutActive] = useState(false)
+    const [isProgramsActive, setIsProgramsActive] = useState(false) 
+    const [isResourcesActive, setIsResourcesActive] = useState(false)
+    const [isBlogActive, setIsBlogActive] = useState(false)
 
     return (
         <header className="website-header">
-            <Link to="/">
+            <NavLink to="/">
                 <img src={logo} className="website-header-logo" alt="logo" />
-            </Link>
+            </NavLink>
             
             <nav className="website-navigation">
-                <Link 
+                <NavLink 
                     to="/about-us" 
-                    className="navigation-links"
-                >ABOUT US</Link>
+                    className={({ isActive }) => {
+                        return(
+                            "navigation-links " + 
+                            (isActive
+                                ? "active-page"
+                                : "inactive-page"
+                            )
+                        )
+                    }}
+                >ABOUT US</NavLink>
 
-                <Link 
+                <NavLink 
                     to="/programs"
-                    className="navigation-links"
-                >PROGRAMS</Link>
+                    className={({ isActive }) => {
+                        return(
+                            "navigation-links " + 
+                            (isActive
+                                ? "active-page"
+                                : "inactive-page"
+                            )
+                        )
+                    }}
+                >PROGRAMS</NavLink>
 
-                <Link 
+                <NavLink 
                     to="/resources"
-                    className="navigation-links"
-                >RESOURCES</Link>
+                    className={({ isActive }) => {
+                        return(
+                            "navigation-links " + 
+                            (isActive
+                                ? "active-page"
+                                : "inactive-page"
+                            )
+                        )
+                    }}
+                >RESOURCES</NavLink>
 
-                <Link 
+                <NavLink 
                     to="/blog"
-                    className="navigation-links" 
+                    className={({ isActive }) => {
+                        return(
+                            "navigation-links " + 
+                            (isActive
+                                ? "active-page"
+                                : "inactive-page"
+                            )
+                        )
+                    }}
                     id="navigation-link-blog"
-                >BLOG</Link>
+                >BLOG</NavLink>
             </nav>
         </header>
     );

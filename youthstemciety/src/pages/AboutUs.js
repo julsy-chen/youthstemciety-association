@@ -19,11 +19,10 @@ export default function AboutUs() {
                             ​We are a student-led nonprofit organization dedicated to inspiring and empowering youth. Our mission is to make STEM education accessible and engaging through hands-on activities, interactive workshops, and mentorship opportunities. By creating a supportive community, we aim to spark curiosity, boost confidence, and foster a love for learning in young people, particularly those from underrepresented backgrounds. Together, we’re paving the way for future leaders in innovation and discovery.
                         </p>
                         <div className="about-us-stats">
-                            <p className='about-us-followers-stat'>1000+<br/>FOLLOWERS</p>
-                            <p className='about-us-accounts-reached-stat'>32 000+<br/>ACCOUNTS REACHED</p>
+                            <p className="about-us-stat" id='about-us-followers-stat'>1000+<br/>FOLLOWERS</p>
+                            <p className="about-us-stat" id='about-us-accounts-reached-stat'>32 000+<br/>ACCOUNTS REACHED</p>
                         </div>
                     </div>
-                    
                     <div className="about-us-img"/>
                 </div>
             </div>

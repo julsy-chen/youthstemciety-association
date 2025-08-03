@@ -67,10 +67,11 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2vh 15vw;
-  padding: 2vh 0;
+  padding: 4vh 15vw;
   height: 2vh;
-  background-color: #ffffff;
+  background-color: #aecbb6;
+  user-select: none;
+
 }
 
 .website-header-logo {
@@ -81,20 +82,38 @@ h3 {
 .website-navigation {
   display: flex;
   align-items: center;
+  height: 3rem;
+  width: auto;
 }
 
 .navigation-links {
-  justify-content: end;
-  margin: 0 2vw;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  margin: 0 1rem;
+  padding: 0 1rem;
   color: #000000;
+  text-decoration: none;
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: normal;
 }
 
-#navigation-link-blog {
-  margin-right: 0;
+.navigation-links:hover {
+  color: #3b5442;
 }
+
+.navigation-links:active-class {
+  color: #7eb08d; 
+}
+
+.active-page {
+  color: #3b5442;
+}
+
+
+/* #navigation-link-blog {
+  margin-right: 0;
+} */
 
 .founder-letter-div {
   display: flex;
@@ -178,18 +197,52 @@ h3 {
 
 .volunteer-opportunities {
   /* margin: 0 15vw; */
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
 }
 
 .volunteer-information {
   text-align: left;
-  width: 50%
 }
 
 .volunteer-opportunities-image-carousel {
-  width: 50%;
+  display: flex;
+  width: 32rem;
+  height: 18rem;
   text-align: right;
+  justify-content: space-between;
+}
+
+.image-in-focus {
+  width: 26rem;
+  height: 18rem;
+  background-color: #686868;
+}
+
+.smaller-images {
+  display: flex;
+  flex-direction: column;
+  width: 5.5rem;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.smaller-image {
+  position: relative;
+  justify-self: end;
+  height: 5.5rem;
+  aspect-ratio: 1/1;
+}
+
+.smaller-image:hover .overlay {
+  position: absolute;
+  height: 5.5rem;
+  aspect-ratio: 1/1;
+  background-color: #6868687a; 
+  top: 0;
 }
 
 .hiring-opporuntiies {
@@ -208,6 +261,8 @@ h3 {
   text-align: right;
 }
 
+
+/* faq  */
 .faq {
   background-color: rgb(223, 235, 223);
 }
@@ -238,7 +293,6 @@ h3 {
 .instagram-profile-banner {
   display: flex;
   align-items: center;
-  margin: 0 16vw;
 }
 
 .instagram-profile {
@@ -253,7 +307,7 @@ h3 {
 
 .instagram-post {
   width: 20%;
-  margin: 1vw;
+  margin: 1rem;
   aspect-ratio: 1 / 1;
   background-color: #f0f0f0; /* Placeholder color */
 }

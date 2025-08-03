@@ -1,4 +1,18 @@
+import { useState } from 'react';
+
+import vanessa from "../images/vanessa.png";
+import elina from "../images/elina.png";
+import anita from "../images/anita.jpg";
+
 export default function HowToJoinUs() {
+    const [imageInFocus, setImageInFocus] = useState(vanessa) 
+
+    const volunteerImages = [vanessa, elina, anita]
+
+    // const handleClick = (id) => {
+    //     setImageInFocus(volunteerImages[id])
+    // }
+
     return (
         <div className="how-to-be-involved-div">{/*styling needed*/}
             <div className="how-to-be-involved-heading"> 
@@ -11,8 +25,22 @@ export default function HowToJoinUs() {
                     <h2>Volunteer Opportunities</h2>
                     <p>We are always looking for volunteers to help us with our mission!</p>
                 </div>
-                <div className="volunteer-opportunities-image-carousel">
-                    <div>this is gonna be where the image carousel is</div> 
+                <div className="volunteer-opportunities-image-carousel"> {/* looks pretty silly when it's squished */}
+                    <img src={imageInFocus} className="image-in-focus"/> 
+                    <div className="smaller-images">
+                        <div className="smaller-image" id="0"> {/* add handleClick event */}
+                            <img className="smaller-image" src={vanessa}/>
+                            <div className="overlay"/>
+                        </div>
+                        <div className="smaller-image" id="1">
+                            <img className="smaller-image" src={elina}/>
+                            <div className="overlay"/>
+                        </div>
+                        <div className="smaller-image" id="2">
+                            <img className="smaller-image" src={anita}/>
+                            <div className="overlay"/>
+                        </div>
+                    </div>
                 </div>
     
             </div>

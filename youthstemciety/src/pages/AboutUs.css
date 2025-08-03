@@ -5,50 +5,64 @@
 
 /* about us introduction */
 .about-us-content {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .about-us-information {
-    width: 70%;
+    width: 35rem;
     text-align: left;
+    margin: auto;
 }
 
 .about-us-text {
     text-align: left;
     text-wrap: pretty;
     line-height: 1.75;
-    margin-right: 2vw;
 }
 
 .about-us-stats {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
     font-weight: bold;
 }
 
-.about-us-followers-stat {
-    margin-left: 2vw;
+.about-us-stat {
+    justify-content: center;
 }
 
-.about-us-accounts-reached-stat {
-    margin-left: 4vw;
+/* #about-us-followers-stat {
+    margin-left: 2rem;
 }
+
+#about-us-accounts-reached-stat {
+    margin-right: 2rem;
+} */
 
 .about-us-img {
-    width: 30vw;
-    height: auto;
+    align-self: center;
+    width: 25rem;
+    height: 17.5rem;
     background-color: #686868;
+    margin: auto;
 }
 
 /* listed offered resources */
 .listed-offered-resources-information {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .listed-offered-resource-information {
-    width: 25%;
-    padding: 0 2vw;
+    width: 15rem;
     text-wrap: pretty;
+    margin: auto;
 }
 
 .listed-offered-resource-img {
@@ -57,24 +71,22 @@
     align-self: center;
 }
 
-#mentorship-program-information {
-    padding-left: 0;
-}
-
-#inclusive-community-information {
-    padding-right: 0;
-}
-
 /* meet our founders */
 .meet-our-founders-information {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .founder-information {
-    width: calc(100%/3);
-    padding: 0 2vw;
+    width: 20rem;
     text-wrap: pretty;
     user-select: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
 }
 
 .founder-information:hover .founder-introduction-div {
@@ -114,14 +126,6 @@
     color: #333;
 }
 
-#meet-elina {
-    padding-left: 0;
-}
-
-#meet-anita {
-    padding-right: 0;
-}
-
 /* our history */
 .our-history-information {
     display: flex;
@@ -130,14 +134,14 @@
 }
 
 .our-history-text {
-    width: 55%;
+    width: 35rem;
     text-align: left;
     text-wrap: pretty;
     line-height: 1.75;
 }
 
 .our-history-img {
-    width: 40%;
-    height: 25vh;
+    width: 25rem;
+    height: 15rem;
     background-color: #686868;
 }
