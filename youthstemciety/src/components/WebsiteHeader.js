@@ -56,7 +56,7 @@ export default function WebsiteHeader() {
                 >RESOURCES</NavLink>
 
                 <NavLink 
-                    to="/blog"
+                    to="/blogs"
                     className={({ isActive }) => {
                         return(
                             "navigation-links " + 

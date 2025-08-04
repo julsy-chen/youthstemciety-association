@@ -9,9 +9,9 @@ export default function HowToJoinUs() {
 
     const volunteerImages = [vanessa, elina, anita]
 
-    // const handleClick = (id) => {
-    //     setImageInFocus(volunteerImages[id])
-    // }
+    const handleClick = (id) => {
+        setImageInFocus(volunteerImages[id])
+    }
 
     return (
         <div className="how-to-be-involved-div">{/*styling needed*/}
@@ -28,15 +28,15 @@ export default function HowToJoinUs() {
                 <div className="volunteer-opportunities-image-carousel"> {/* looks pretty silly when it's squished */}
                     <img src={imageInFocus} className="image-in-focus"/> 
                     <div className="smaller-images">
-                        <div className="smaller-image" id="0"> {/* add handleClick event */}
+                        <div className="smaller-image" id="0" onClick={() => handleClick(0)}> {/* add handleClick event */}
                             <img className="smaller-image" src={vanessa}/>
                             <div className="overlay"/>
                         </div>
-                        <div className="smaller-image" id="1">
+                        <div className="smaller-image" id="1" onClick={() => handleClick(1)}>
                             <img className="smaller-image" src={elina}/>
                             <div className="overlay"/>
                         </div>
-                        <div className="smaller-image" id="2">
+                        <div className="smaller-image" id="2" onClick={() => handleClick(2)}>
                             <img className="smaller-image" src={anita}/>
                             <div className="overlay"/>
                         </div>

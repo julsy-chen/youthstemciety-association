@@ -60,15 +60,32 @@
 }
 
 .listed-offered-resource-information {
+    position: relative;
     width: 15rem;
     text-wrap: pretty;
     margin: auto;
+    color: black;
+    text-decoration: none;
 }
 
 .listed-offered-resource-img {
     aspect-ratio: 1/1;
     background-color: #686868;
     align-self: center;
+}
+
+.listed-offered-resource-information .listed-offered-resource-img:hover + .overlay {
+    position: absolute;
+    height: 15rem;
+    aspect-ratio: 1/1;
+    background-color: #dcdcdc7a; 
+    top: 0;
+    display: block;
+    pointer-events: none;
+}
+
+.listed-offered-resource-information:hover {
+    color: #3b5442;
 }
 
 /* meet our founders */

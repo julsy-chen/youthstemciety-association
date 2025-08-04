@@ -1,4 +1,5 @@
 import './AboutUs.css';
+import { NavLink } from 'react-router-dom';
 // 
 import elina from '../images/elina.png';
 import anita from '../images/anita.jpg';
@@ -29,29 +30,33 @@ export default function AboutUs() {
             <div className="listed-offered-resources">
                 <h1>WHAT WE OFFER:</h1>
                 <div className="listed-offered-resources-information">
-                    <div className="listed-offered-resource-information" id="mentorship-program-information">
+                    <NavLink className="listed-offered-resource-information" id="mentorship-program-information" to="/programs">
                         <div className="listed-offered-resource-img" id="mentorship-program-img"/>
+                        <div className="overlay"/>
                         <h2>Mentorship<br/>Program</h2>
                         <p>This is a description of the mentorship program</p>
-                    </div>
+                    </NavLink>
 
-                    <div className="listed-offered-resource-information" id="study-resources-information">
+                    <NavLink className="listed-offered-resource-information" id="study-resources-information" to="/resources">
                         <div className="listed-offered-resource-img" id="study-resources-img"/>
+                        <div className="overlay"/>
                         <h2>Study<br/>Resources</h2>
                         <p>This is a description of the study resources</p>
-                    </div>
+                    </NavLink>
 
-                    <div className="listed-offered-resource-information" id="student-blogs-information">
+                    <NavLink className="listed-offered-resource-information" id="student-blogs-information" to="/blogs">
                         <div className="listed-offered-resource-img" id="student-blogs-img"/>
+                        <div className="overlay"/>
                         <h2>Student<br/>Blogs</h2>
                         <p>This is a description of the student blogs</p>
-                    </div>
+                    </NavLink>
 
-                    <div className="listed-offered-resource-information"id="inclusive-community-information">
+                    <NavLink className="listed-offered-resource-information" id="inclusive-community-information" target="_blank">
                         <div className="listed-offered-resource-img" id="inclusive-community-img"/>
+                        <div className="overlay"/>
                         <h2>Inclusive<br/>Community</h2>
                         <p>This is a description of the inclusive community</p>
-                    </div>
+                    </NavLink>
                 </div>
             </div>
             <div className="meet-our-founders">
