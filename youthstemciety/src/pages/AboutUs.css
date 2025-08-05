@@ -1,9 +1,13 @@
 .AboutUs {
     text-align: center;
-    margin: 0 20vw 4vh 20vw
+    margin-bottom: 4rem;
 }
 
 /* about us introduction */
+.about-us-introduction {
+    padding: 0 20rem;
+}
+
 .about-us-content {
     width: 100%;
     display: flex;
@@ -53,7 +57,7 @@
 
 /* listed offered resources */
 .listed-offered-resources-information {
-    width: 100%;
+    padding: 0 20rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -90,7 +94,7 @@
 
 /* meet our founders */
 .meet-our-founders-information {
-    width: 100%;
+    padding: 0 20rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -146,7 +150,7 @@
 /* our history */
 .our-history-information {
     display: flex;
-    width: 100%;
+    padding: 0 20rem;
     justify-content: space-between;
 }
 

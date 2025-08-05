@@ -51,7 +51,7 @@ export default function AboutUs() {
                         <p>This is a description of the student blogs</p>
                     </NavLink>
 
-                    <NavLink className="listed-offered-resource-information" id="inclusive-community-information" target="_blank">
+                    <NavLink className="listed-offered-resource-information" id="inclusive-community-information" to="https://discord.gg/eyZaTv4q" target="_blank">
                         <div className="listed-offered-resource-img" id="inclusive-community-img"/>
                         <div className="overlay"/>
                         <h2>Inclusive<br/>Community</h2>

@@ -73,20 +73,32 @@ export default function Homepage() {
                 <h1>youthstemciety</h1>
                 <p>Empower. Innovate. Succeed</p>
               </div>
-          </div>
-          <div className="instagram-posts">
-                <div className="instagram-post">Post 1</div>
-                <div className="instagram-post">Post 2</div>
-                <div className="instagram-post">Post 3</div>
-                <div className="instagram-post">Post 4</div>
-              </div>
-              <p>Follow us on Instagram</p>
+            </div>
+            <div className="instagram-posts">
+              <div className="instagram-post">Post 1</div>
+              <div className="instagram-post">Post 2</div>
+              <div className="instagram-post">Post 3</div>
+              <div className="instagram-post">Post 4</div>
+            </div>
+            <p>Follow us on Instagram</p>
           </div>
           <div className="faq">
             <h1>FAQs</h1>
-            <div className="faq-information">
+            <div className="faq-content">
               <div className="faq-questions">
-                <p>insert question</p>
+                <div className="faq-question-content">
+                  <h2 className="faq-question-icon">
+                    +
+                  </h2>
+                  <div className="faq-question-text">
+                    <h2 className="faq-question">
+                      How do I join?
+                    </h2>
+                    <div className="faq-answer">
+                      please look at the website
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="faq-ask-question">
                 <h2>Have another question? Let us know!</h2>
