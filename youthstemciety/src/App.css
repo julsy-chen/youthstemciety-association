@@ -9,17 +9,6 @@
   }
 }
 
-.App-header {
-  background-color: #ffffff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -59,23 +48,46 @@ h3 {
 }
 
 p {
-  font-size: 1em;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: normal;
+  font-size: 1.65ch;
+  line-height: 2.25;
 }
 
-.homepage-content {
-  text-align: center;
-  padding-bottom: 4rem;
-}
 
 .website-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3rem 10rem;
+  padding: 3rem 10vw;
+  width: 100vw;
   height: 2vh;
+  box-sizing: border-box;
   background-color: #ffffff;
   user-select: none;
-  filter: drop-shadow(0 0 0.4rem #686868)
+  /* filter: drop-shadow(0 0 0.4rem #686868) */
+}
+
+.website-header-menu {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  user-select: none;
+  cursor: pointer;
+  display: none;
+}
+
+@media only screen and (max-width: 810px) {
+  .website-header-menu {
+    display: block;
+  }
+  .website-header {
+    display: none;
+  }
 }
 
 .website-header-logo {
@@ -84,6 +96,7 @@ p {
 }
 
 .website-navigation {
+  justify-content: space-between;
   display: flex;
   align-items: center;
   height: 3rem;
@@ -102,10 +115,6 @@ p {
   font-weight: normal;
 }
 
-.navigation-links:hover {
-  color: #3b5442;
-}
-
 .navigation-links:active-class {
   color: #7eb08d; 
 }
@@ -114,20 +123,34 @@ p {
   color: #3b5442;
 }
 
+/* homepage content */
+.homepage {
+  width: 100vw;
+}
+
+.homepage-content {
+  text-align: center;
+}
+
 .homepage-banner {
-  width: 100%;
   height: 20rem;
   background-color: #A9D0C5;
   color: white;
+  box-sizing: border-box;
 }
 
 /* letter from our founders */
 .founder-letter-div {
   display: flex;
-  margin-top: 4rem;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 20rem
+  padding: 2rem 20vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .founder-letter-div {
+    padding: 2rem 5vw;    
+  }
 }
 
 .founder-letter {
@@ -136,10 +159,6 @@ p {
 }
 
 .founder-letter-text {
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: normal;
-  font-size: 1.75ch;
-  line-height: 2.25;
   text-wrap: pretty;
 }
 
@@ -159,18 +178,26 @@ p {
   aspect-ratio: 1 / 1;
 }
 
+#vanessa-image {
+  margin-bottom: 0;
+}
+
 /* offered resources — horizontal clicky arrow */
 .horizontal-scroll-offered-resources {
   background-color: rgb(213, 187, 187);
   display: flex;
   align-items: center; /* Center vertically */
-  height: 20rem;
-  width: 100%;
-  /* padding: 1rem 20rem; */
+  justify-content: space-between;
+  padding: 2rem 10vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .horizontal-scroll-offered-resources {
+    padding: 2rem 8vw;    
+  }
 }
 
 .offered-resources-left-button {
-  margin-left: 20rem;
   width: 2.5rem;
   aspect-ratio: 1/1;
   background-color: #686868;
@@ -181,7 +208,6 @@ p {
 }
 
 .offered-resources-right-button {
-  margin-right: 20rem;
   width: 2.5rem;
   aspect-ratio: 1/1;
   background-color: #686868;
@@ -192,21 +218,27 @@ p {
 }
 
 .offered-resources-information {
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 40vw;
 }
 
 /* How To Join Us */
 .how-to-be-involved-div {
-  padding: 0 20rem;
+  padding: 2rem 20vw;
   /* background-color: rgb(196, 217, 225);  */
   color: black;
 }
 
+@media only screen and (max-width: 500px) {
+  .how-to-be-involved-div {
+    padding: 2rem 10vw;
+  }
+}
+
 .volunteer-opportunities {
-  /* margin: 0 15vw; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -216,47 +248,64 @@ p {
 
 .volunteer-information {
   text-align: left;
+  width: 30rem;
 }
 
 .volunteer-opportunities-image-carousel {
   display: flex;
-  width: 32rem;
-  height: 18rem;
-  text-align: right;
+  width: 50%;
   justify-content: space-between;
 }
 
 .image-in-focus {
-  width: 26rem;
-  height: 18rem;
+  width: 80%;
+  aspect-ratio: 1/1;
   background-color: #686868;
 }
 
 .smaller-images {
   display: flex;
   flex-direction: column;
-  width: 5.5rem;
+  width: 19%;
   height: 100%;
   justify-content: space-between;
 }
 
 .smaller-image {
   position: relative;
-  justify-self: end;
-  height: 5.5rem;
+  width: 100%;
   aspect-ratio: 1/1;
+}
+
+@media only screen and (max-width: 500px) {
+  .volunteer-opportunities-image-carousel {
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .image-in-focus {
+    width: 80vw;
+  }
+  .smaller-images {
+    box-sizing: border-box;
+    margin-top: 3px;
+    flex-direction: row;
+  }
+  .smaller-image {
+    width: 20vw;
+    box-sizing: border-box;
+    margin-right: 3px;
+  }
 }
 
 .smaller-image:hover .overlay {
   position: absolute;
-  height: 5.5rem;
+  width: 100%;
   aspect-ratio: 1/1;
   background-color: #6868687a; 
   top: 0;
 }
 
 .hiring-opporuntiies {
-  /* margin: 0 15vw; */
   display: flex;
   align-items: center;
 }
@@ -274,16 +323,24 @@ p {
 /* Instagram Display */
 .instagram-display {
   background-color: #e8edde;
-  padding: 0 20rem;;
+  padding: 2rem 20vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .instagram-display {
+    padding: 2rem 10vw;
+  }
+}
+
+.instagram-display-heading a {
+  color: #5a6dbb;
+  text-decoration: none;
 }
 
 .instagram-profile-banner {
   display: flex;
   align-items: center;
 }
-
-/* .instagram-profile {
-} */
 
 .instagram-posts {
   display: flex;
@@ -301,8 +358,16 @@ p {
 
 /* faq  */
 .faq {
+  width: 100vw;
+  box-sizing: border-box;
   background-color: rgb(223, 235, 223);
-  padding: 0 20rem;
+  padding: 2rem 20vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .faq {
+    padding: 2rem 10vw;
+  }
 }
 
 .faq-content {
@@ -335,11 +400,69 @@ p {
   justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Footer */
+.footer-content {
+  background-color: #A9D0C5;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 10vw;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 500px) {
+  .footer-content {
+    padding: 1rem 5vw;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.footer-content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-content p {
+  line-height: 1;
+}
+
+.footere-content span {
+  display: block;
+}
+
+/* socials */
+.social-icon {
+  width: 1.5rem;
+  aspect-ratio: 1/1;
+  margin-right: 0.5rem;
+}
+
+/* contact us */
+.contacts h3 {
+  margin-bottom: 0.5rem; /* Explicitly set if needed */
+}
+
+/* info — privacy policy */
+.info {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#navigation-link-privacy-policy {
+  vertical-align: top;
+  line-height: 0;
+  font-size: 1.65ch;
+  margin: 0;
+  padding: 0;
+}
+
+.info .inactive-page {
+  color: #FFFFFF;
+}
+
+.navigation-links:hover {
+  color: #3b5442;
+}
+
+/* privacy policy page */
+.privacy-policy-page {
+  padding: 2rem 20vw;
 }

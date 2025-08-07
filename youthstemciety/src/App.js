@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -9,30 +8,26 @@ import AboutUs from './pages/AboutUs';
 import Programs from './pages/Programs';
 import Resources from './pages/Resources';
 import Blog from './pages/Blog';
+import Footer from './components/Footer'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import ScrollToTop from './components/ScrollToTop'
 
 export default function App() {
-  const [offeredResourceNumber, setOfferedResourceNumber] = useState(1)
-
-  const offeredResourcesArray = [
-    ["Student Blogs", "this is a description of the student blogs"],
-    ["Mentorship Program", "this is a description of the mentorship program"],
-    ["Study Resources", "this is a description of the study resources"],
-    ["Inclusive Community", "this is a description of the inclusive community"],
-  ]
-
-
 
   return (
     <>
       <div>
         <WebsiteHeader />
+        <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/blogs" element={<Blog />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );

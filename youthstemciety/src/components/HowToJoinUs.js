@@ -23,7 +23,9 @@ export default function HowToJoinUs() {
             <div className="volunteer-opportunities">
                 <div className="volunteer-information">
                     <h2>Volunteer Opportunities</h2>
-                    <p>We are always looking for volunteers to help us with our mission!</p>
+                    <p>
+                        Join our team of dedicated volunteers and help empower the next generation of innovators! Whether you're a student, professional, or simply someone who believes in accessible education, we have meaningful opportunities for you. Volunteering with us is a great way to build your skills, expand your network, and support a cause that matters.
+                    </p>
                 </div>
                 <div className="volunteer-opportunities-image-carousel"> {/* looks pretty silly when it's squished */}
                     <img src={imageInFocus} className="image-in-focus"/> 
@@ -47,7 +49,18 @@ export default function HowToJoinUs() {
             <div className="hiring-opporuntiies">
                 <div className="hiring-information">
                     <h2>When We're Hiring</h2>
-                    <p>please join us</p>
+                    <div>
+                        <p>
+                            Join our team! We open applications every few months for a range of roles in departments like research, outreach, operations, and more.
+                        </p>
+                        <p>
+                        Whether you're looking to lead initiatives, support our programs, or contribute behind the scenes, there's a spot for you. As part of our team, you'll collaborate with passionate youth, build real-world skills, and help make STEM education more accessible all while fulfilling your volunteer hour requirements.
+                        </p>
+                        <p>
+                        Follow us on Instagram or check our website regularly to see when applications open!
+                        </p>
+                    </div>
+                    
                 </div>
                 <div className="hiring-post">
                     this is where the hiring post wil be or any other image

@@ -6,6 +6,9 @@
 /* about us introduction */
 .about-us-introduction {
     padding: 0 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .about-us-content {
@@ -68,6 +71,7 @@
     width: 15rem;
     text-wrap: pretty;
     margin: auto;
+    margin-top: 0;
     color: black;
     text-decoration: none;
 }
@@ -144,6 +148,7 @@
     text-wrap: pretty;
     vertical-align: middle;
     line-height: 1.5;
+    font-size: 0.7rem;
     color: #333;
 }
 

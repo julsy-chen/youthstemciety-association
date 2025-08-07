@@ -11,13 +11,13 @@ import HowToJoinUs from '../components/HowToJoinUs.js';
 
 
 export default function Homepage() {
-  const [offeredResourceNumber, setOfferedResourceNumber] = useState(1)
+  const [offeredResourceNumber, setOfferedResourceNumber] = useState(0)
 
   const offeredResourcesArray = [
-    ["Student Blogs", "this is a description of the student blogs"],
-    ["Mentorship Program", "this is a description of the mentorship program"],
-    ["Study Resources", "this is a description of the study resources"],
-    ["Inclusive Community", "this is a description of the inclusive community"],
+    ["Mentorship Program", "Our peer mentorship program pairs high school students passionate about STEM with other dedicated students, providing support and encouragement."],
+    ["Study Resources", "We provide helpful study guides/notes, practice problems, and curated learning materials to support students both inside and outside the classroom."],
+    ["Student Blogs", "Our blog features student-written posts that share personal experiences, STEM insights, project highlights, and advice to inspire and connect with fellow learners."],
+    ["Inclusive Community", "Our organization is aimed towards creating an inclusive and welcoming community for all followers and members. Our community welcomes people from all backgrounds and experiences."],
   ]
 
   
@@ -32,12 +32,27 @@ export default function Homepage() {
           <div className="founder-letter-div"> {/*styling needed*/}
               <div className="founder-letter">
                 <h2>Letter From Our Founders</h2>
-                <p className="founder-letter-text">​We are a student-led nonprofit organization dedicated to inspiring and empowering youth. Our mission is to make STEM education accessible and engaging through hands-on activities, interactive workshops, and mentorship opportunities. By creating a supportive community, we aim to spark curiosity, boost confidence, and foster a love for learning in young people, particularly those from underrepresented backgrounds. Together, we’re paving the way for future leaders in innovation and discovery.</p>
+                <div className="founder-letter-text">
+                  <p>
+                  We are your founders, Anita, Elina, and Vanessa. We love empowering YOU(th)! We started with a simple idea: to make STEM education more accessible. As students ourselves, we saw many of our peers struggle to enjoy STEM because they faced constant barriers and were expected to learn from an uninspiring curriculum.
+                  </p>
+                  <p>
+                    When we looked around our own communities, we noticed that so many young children, our siblings, cousins, and friends, felt disconnected from STEM. At first, we didn’t understand why. Then it became clear: we had been exposed to STEM topics early on, which helped us grow our curiosity into something more, even a future career.                    
+                  </p>
+                  <p>
+                  That’s why we created YouthSTEMciety, to break down those barriers and give every young person a chance to explore, create, and thrive in STEM.                    
+                  </p>
+                  <p>
+                    With excitement and gratitude,
+                    <br/>
+                    Anita, Elina, and Vanessa
+                  </p>
+                </div>
               </div>
               <div className ="founder-letter-image-collection">
+                <img src={anita} className="founder-letter-image" id="anita-image" alt="anita" />
                 <img src={elina} className="founder-letter-image" id="elina-image" alt="elina" />
                 <img src={vanessa} className="founder-letter-image" id="vanessa-image" alt="vanessa" />
-                <img src={anita} className="founder-letter-image" id="anita-image" alt="anita" />
               </div>
           </div>
 
@@ -65,12 +80,12 @@ export default function Homepage() {
           <div className="instagram-display">{/*let's do this last*/}
             <div className="instagram-display-heading">
               <h1>OUR INSTAGRAM!</h1>
-              <p>🌟 FOLLOW US @youthstemciety</p>
+              <p>🌟 FOLLOW US <a href="https://www.instagram.com/youthstemciety/">@youthstemciety</a></p>
             </div>
             <div className="instagram-profile-banner">
               <img src={logo} className="instagram-profile" alt="logo"/>
               <div className="instagram-profile-information">
-                <h1>youthstemciety</h1>
+                <h2>youthstemciety</h2>
                 <p>Empower. Innovate. Succeed</p>
               </div>
             </div>
