@@ -80,7 +80,7 @@ export default function Homepage() {
           <div className="instagram-display">{/*let's do this last*/}
             <div className="instagram-display-heading">
               <h1>OUR INSTAGRAM!</h1>
-              <p>🌟 FOLLOW US <a href="https://www.instagram.com/youthstemciety/">@youthstemciety</a></p>
+              <p>🌟 FOLLOW US <a href="https://www.instagram.com/youthstemciety/" target="blank">@youthstemciety</a></p>
             </div>
             <div className="instagram-profile-banner">
               <img src={logo} className="instagram-profile" alt="logo"/>
@@ -102,17 +102,30 @@ export default function Homepage() {
             <div className="faq-content">
               <div className="faq-questions">
                 <div className="faq-question-content">
-                  <h2 className="faq-question-icon">
-                    +
-                  </h2>
                   <div className="faq-question-text">
                     <h2 className="faq-question">
-                      How do I join?
+                      What type of STEM programs or events do you organize?
                     </h2>
-                    <div className="faq-answer">
-                      please look at the website
-                    </div>
+                    <p className="faq-answer">
+                      We plan both in person and online events! We have events that last over a week, such as virtual internship programs, as well as workshops and activities that last about a day. These help foster a community of STEM enthusiasts from all ages and places!
+                    </p>
                   </div>
+                  <div className="faq-question-text">
+                    <h2 className="faq-question">
+                      Who are your programs for (age group, region, demographics)?
+                    </h2>
+                    <p className="faq-answer">
+                      Our organization is mostly geared towards youth, but we do welcome everyone from every age! Our programs welcome everyone from all over the globe as well.
+                    </p>
+                  </div>
+                  <div className="faq-question-text">
+                    <h2 className="faq-question">
+                      How can students get involved or join your organization?
+                    </h2>
+                    <p className="faq-answer">
+                       Students can apply to be an executive for YSA every 4-5 months when we open hiring, or they can join as a general member. These members would assist with events and help create a welcoming community within our organization!
+                    </p>
+                  </div> 
                 </div>
               </div>
               <div className="faq-ask-question">
