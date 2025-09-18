@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
-import vanessa from "../images/vanessa.png";
-import elina from "../images/elina.png";
-import anita from "../images/anita.jpg";
+import volunteer_1 from "../images/volunteer_1.png";
+import volunteer_2 from "../images/volunteer_2.png";
+import volunteer_3 from "../images/volunteer_3.png";
+import hiring from "../images/hiring.png";
+import ig_post_icon from "../images/ig-post-icon.png";
 
 export default function HowToJoinUs() {
-    const [imageInFocus, setImageInFocus] = useState(vanessa) 
+    const [imageInFocus, setImageInFocus] = useState(volunteer_1) 
 
-    const volunteerImages = [vanessa, elina, anita]
+    const volunteerImages = [volunteer_1, volunteer_2, volunteer_3]
 
     const handleClick = (id) => {
         setImageInFocus(volunteerImages[id])
@@ -17,7 +19,7 @@ export default function HowToJoinUs() {
         <div className="how-to-be-involved-div">{/*styling needed*/}
             <div className="how-to-be-involved-heading"> 
                 <h1>INTERESTED IN JOINING US?</h1>
-                <p>Join our Discord & follow us on Instagram!</p>
+                <p>Join our <a id="discord-link" href="https://discord.gg/78bVwk5d">Discord</a> & follow us on <a id="instagram-link" href="https://www.instagram.com/youthstemciety/">Instagram</a>!</p>
             </div>
     
             <div className="volunteer-opportunities">
@@ -31,22 +33,22 @@ export default function HowToJoinUs() {
                     <img src={imageInFocus} className="image-in-focus"/> 
                     <div className="smaller-images">
                         <div className="smaller-image" id="0" onClick={() => handleClick(0)}> {/* add handleClick event */}
-                            <img className="smaller-image" src={vanessa}/>
+                            <img className="smaller-image" src={volunteer_1}/>
                             <div className="overlay"/>
                         </div>
                         <div className="smaller-image" id="1" onClick={() => handleClick(1)}>
-                            <img className="smaller-image" src={elina}/>
+                            <img className="smaller-image" src={volunteer_2}/>
                             <div className="overlay"/>
                         </div>
                         <div className="smaller-image" id="2" onClick={() => handleClick(2)}>
-                            <img className="smaller-image" src={anita}/>
+                            <img className="smaller-image" src={volunteer_3}/>
                             <div className="overlay"/>
                         </div>
                     </div>
                 </div>
     
             </div>
-            <div className="hiring-opporuntiies">
+            <div className="hiring-opportunities">
                 <div className="hiring-information">
                     <h2>When We're Hiring</h2>
                     <div>
@@ -60,11 +62,12 @@ export default function HowToJoinUs() {
                         Follow us on Instagram or check our website regularly to see when applications open!
                         </p>
                     </div>
-                    
                 </div>
                 <div className="hiring-post">
-                    this is where the hiring post wil be or any other image
+                    <img className="ig-post-icon" src={ig_post_icon} alt="" />
+                    <img className="hiring-post-image" src={hiring} alt="hiring-post-image" />
                 </div>
+                
             </div>
         </div>
     )

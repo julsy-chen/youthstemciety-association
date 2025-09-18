@@ -40,17 +40,34 @@
   margin: 2vh 0 4vh;
 } */
 
+h1 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 750;
+  font-size: 5ch;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  margin: 2vh 0 1vh;
+}
+
 h3 {
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: normal;
-  font-size: 1.5ch;
-  margin: 2vh 0 4vh;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  margin: 0;
+  font-size: 2.15ch;
 }
 
 p {
-  font-family: "Be Vietnam Pro", sans-serif;
+  font-family: "Alice", sans-serif;
   font-weight: normal;
-  font-size: 1.65ch;
+  font-size: 2ch;
   line-height: 2.25;
 }
 
@@ -111,8 +128,10 @@ p {
   padding: 0 1rem;
   color: #000000;
   text-decoration: none;
-  font-family: "Be Vietnam Pro", sans-serif;
+  font-family: "Alice", sans-serif;
   font-weight: normal;
+  font-size: 2ch;
+  line-height: 2.25; 
 }
 
 .navigation-links:active-class {
@@ -142,6 +161,7 @@ p {
 /* letter from our founders */
 .founder-letter-div {
   display: flex;
+
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 2rem 20vw;
@@ -200,12 +220,39 @@ p {
 }
 
 /* offered resources — horizontal clicky arrow */
+/* Parent Container */
 .horizontal-scroll-offered-resources {
-  background-color: rgb(213, 187, 187);
+  position: relative; /* Establishes positioning context for the image */
+  /* background-color: rgba(158, 181, 166, 0.641); */
   display: flex;
-  align-items: center; /* Center vertically */
+  align-items: center;
+  justify-content: center; /* Center the content overlay */
+  overflow: hidden; /* Prevents image from spilling out */
+  min-height: 50vh; /* Example: give the section a defined height */
+}
+
+/* Background Image */
+.offered-resources-information-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire div */
+  z-index: 1; /* Places the image on a lower layer */
+  opacity: 30%
+}
+
+/* Content Overlay (Buttons and Text) */
+.offered-resources {
+  position: relative; /* Allows z-index to work */
+  z-index: 2; /* Places content on top of the image */
+  width: 100%;
+  padding: 0 8vw; /* Adds space from the edges */
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 2rem 10vw;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -227,7 +274,6 @@ p {
 .offered-resources-right-button {
   width: 2.5rem;
   aspect-ratio: 1/1;
-  background-color: #686868;
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -242,9 +288,20 @@ p {
   width: 40vw;
 }
 
+.offered-resources-information-text h2 {
+  color: rgb(90, 89, 89);
+}
+
+.solid {
+  width: 50%;
+  border: none;
+  height: 2px;
+  background-color: rgb(170, 168, 168);
+}
+
 /* How To Join Us */
 .how-to-be-involved-div {
-  padding: 2rem 20vw;
+  padding: 0 10vw;
   /* background-color: rgb(196, 217, 225);  */
   color: black;
 }
@@ -255,35 +312,49 @@ p {
   }
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#discord-link:hover {
+  color: #5969EA;
+}
+
+#instagram-link:hover {
+  color: #b22650;
+}
+
 .volunteer-opportunities {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .volunteer-information {
   text-align: left;
-  width: 30rem;
+  width: 40vw;
 }
 
 .volunteer-opportunities-image-carousel {
   display: flex;
-  width: 30rem;
-  justify-content: space-between;
+  width: 30vw;
+  gap: 0.5rem;
 }
 
 .image-in-focus {
-  width: 80%;
+  width: 24vw;
   aspect-ratio: 1/1;
   background-color: #686868;
 }
 
+
 .smaller-images {
   display: flex;
   flex-direction: column;
-  width: 19%;
+  width: 5.7vw;
   height: 100%;
   justify-content: space-between;
 }
@@ -295,12 +366,19 @@ p {
 }
 
 @media only screen and (max-width: 1000px) {
+  .volunteer-opportunities {
+    justify-content: center;
+  }
+  .volunteer-information {
+    width: 100%;
+  }
   .volunteer-opportunities-image-carousel {
     flex-direction: column;
     box-sizing: border-box;
+    width: 100%;
   }
   .image-in-focus {
-    width: 80vw;
+    width: 60vw;
   }
   .smaller-images {
     box-sizing: border-box;
@@ -308,7 +386,7 @@ p {
     flex-direction: row;
   }
   .smaller-image {
-    width: 20vw;
+    width: 15vw;
     box-sizing: border-box;
     margin-right: 3px;
   }
@@ -322,25 +400,53 @@ p {
   top: 0;
 }
 
-.hiring-opporuntiies {
+.hiring-opportunities {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .hiring-information {
   text-align: left;
-  width: 50%;
+  width: 40vw;
 }
 
 .hiring-post {
-  width: 50%;
-  text-align: right;
+  position: relative;
+}
+
+.ig-post-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 6%;
+  aspect-ratio: 1/1;
+  z-index: 1;
+}
+
+.hiring-post-image {
+  width: 30vw;
+}
+
+@media only screen and (max-width: 1000px) {
+  .hiring-opportunities {
+    justify-content: center;
+  }
+  .hiring-post-image {
+    width: 60vw;
+  }
+  .hiring-information {
+    width: 100%;
+  }
 }
 
 /* Instagram Display */
 .instagram-display {
   background-color: #e8edde;
-  padding: 2rem 20vw;
+  padding: 2rem 15vw;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -350,33 +456,84 @@ p {
 }
 
 .instagram-display-heading a {
-  color: #5a6dbb;
+  color: #5b7067;
   text-decoration: none;
+}
+
+.instagram-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .instagram-profile-banner {
   display: flex;
   align-items: center;
-}
-
-.instagram-posts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.instagram-post {
-  width: 15rem;
-  aspect-ratio: 1 / 1;
-  background-color: #f0f0f0; /* Placeholder color */
-  justify-content: center;
   margin-bottom: 1rem;
 }
 
+.instagram-profile {
+  width: 6rem;
+}
+
+.instagram-profile img {
+  width: 6rem;
+}
+
+.instagram-profile-information {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.instagram-profile-information h3 {
+  margin-block-end: 0rem;
+}
+
+.instagram-profile-information p {
+  margin-block-start: 0.5rem;
+  margin-block-end: 0rem;
+  line-height: 1;
+  font-size: 1.75ch
+}
+
+.instagram-posts {
+  display: grid;
+  /* This creates responsive columns. They will each be at least 250px wide, 
+     and the grid will fit as many as possible on one row before wrapping. */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* the square tile */
+.instagram-post{
+  position: relative;
+  aspect-ratio: 1 / 1;   /* perfect square */
+  overflow: hidden;       /* clean crop */
+  max-width: 25vw; /* This will limit the size of each square post container */
+  max-height: 25vw; /* And ensure it remains a square */
+  width: 100%; /* Ensure it still participates in the grid flow */
+  height: 100%; /* Ensure it still participates in the grid flow */
+}
+
+/* the actual image */
+.instagram-post img{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
 @media only screen and (min-width: 2000px) {
-  .instagram-post {
+  .instagram-post img {
+    object-fit: contain;
     width: 25vw;
+    height: 25vw;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .instagram-post img {
+    object-fit: cover; 
+    width: 100%; 
+    height: 100%; 
   }
 }
 
@@ -385,7 +542,7 @@ p {
   width: 100vw;
   box-sizing: border-box;
   background-color: rgb(223, 235, 223);
-  padding: 2rem 20vw;
+  padding: 2rem 10vw;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -402,28 +559,70 @@ p {
 
 .faq-questions {
   /* background-color: #ffffff; */
-  width: 50%;
+  width: 58%;
   text-align: left;
 }
 
 .faq-question-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .faq-question-icon {
   margin-right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  aspect-ratio: 1/1;
+  margin-top: 0.6rem;
+  transition: all 0.5s ease-in
 }
 
 .faq-answer {
   margin-top: 1rem;
 }
 
-.faq-ask-question {
-  width: auto;
-  /* background-color:rgb(213, 187, 187); */
-  justify-content: center;
+.open-answer {
+  display: block;
+  max-height: 1000px; /* A large enough value */
+  opacity: 1;
+  transition: all 0.3s ease-in
 }
+
+.closed-answer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.faq-ask-question {
+  width: 40%;
+  text-align: left;
+}
+
+.input-fields{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-fields input {
+  height: 1.75rem;
+  width: 100%;
+}
+
+.input-fields p {
+  margin: 0;
+  font-size: 1.5ch;
+  line-height: 1.5;
+}
+
+.full-name {
+  display: flex;
+  gap: 1rem;
+}
+
+
 
 /* Footer */
 .footer-content {

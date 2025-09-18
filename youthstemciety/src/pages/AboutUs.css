@@ -4,8 +4,15 @@
 }
 
 /* about us introduction */
+.about-us-banner {
+    height: 35vh;
+    width: auto;
+    background-color: green;
+    align-content: center;
+}
+
 .about-us-introduction {
-    padding: 0 20rem;
+    padding: 0 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -16,10 +23,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 2rem;
 }
 
 .about-us-information {
-    width: 35rem;
+    width: 50%;
     text-align: left;
     margin: auto;
 }
@@ -52,39 +60,48 @@
 
 .about-us-img {
     align-self: center;
-    width: 25rem;
-    height: 17.5rem;
-    background-color: #686868;
+    width: 28rem;
     margin: auto;
+    margin-top: 1em;
+    display: block;
+    position: relative;
+}
+
+.about-us-img img {
+    width: 29rem;
+    height: auto;
 }
 
 /* listed offered resources */
+.listed-offered-resources {
+    padding: 0 10vw;
+}
+
 .listed-offered-resources-information {
-    padding: 0 20rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .listed-offered-resource-information {
     position: relative;
-    width: 15rem;
+    width: 20rem;
     text-wrap: pretty;
-    margin: auto;
     margin-top: 0;
     color: black;
     text-decoration: none;
 }
 
 .listed-offered-resource-img {
+    width: 20rem;
     aspect-ratio: 1/1;
     background-color: #686868;
-    align-self: center;
 }
 
 .listed-offered-resource-information .listed-offered-resource-img:hover + .overlay {
     position: absolute;
-    height: 15rem;
+    height: 20rem;
     aspect-ratio: 1/1;
     background-color: #dcdcdc7a; 
     top: 0;
@@ -97,21 +114,24 @@
 }
 
 /* meet our founders */
+.meet-our-founders {
+    padding: 0 10vw;
+}
+
 .meet-our-founders-information {
-    padding: 0 20rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .founder-information {
-    width: 20rem;
+    width: 25rem;
     text-wrap: pretty;
     user-select: none;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: auto;
 }
 
 .founder-information:hover .founder-introduction-div {
@@ -148,7 +168,7 @@
     text-wrap: pretty;
     vertical-align: middle;
     line-height: 1.5;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: #333;
 }
 

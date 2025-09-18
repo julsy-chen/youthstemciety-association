@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 
-import logo from '../images/logo.jpg';
+import logo from '../images/logo.png';
 
 export default function WebsiteHeader() {
     const [isAboutActive, setIsAboutActive] = useState(false)
