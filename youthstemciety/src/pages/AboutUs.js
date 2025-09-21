@@ -9,6 +9,7 @@ import resources from '../images/resources.png'
 import blogs from '../images/blogs.png'
 import community from '../images/community.jpg'
 import context from '../images/about-us-context.png'
+import streaks from "../images/streaks.png";
 
 import HowToJoinUs from '../components/HowToJoinUs.js';
 
@@ -17,6 +18,7 @@ export default function AboutUs() {
     return(
         <div className="AboutUs">
             <div className="about-us-banner">
+                <img className="backdrop" src={streaks} alt="" />
                 <h1>ABOUT US</h1>
             </div>
             <div className="about-us-introduction">

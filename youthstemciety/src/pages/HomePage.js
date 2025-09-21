@@ -16,6 +16,8 @@ import post_3 from '../images/post-3.png'
 import post_4 from '../images/post-4.png'
 import expand from '../images/expand-icon.svg'
 import collapse from '../images/collapse-icon.svg'
+import ig_post_icon from "../images/ig-post-icon.png";
+import streaks from "../images/streaks.png";
 
 import {useState} from 'react';
 import HowToJoinUs from '../components/HowToJoinUs.js';
@@ -57,7 +59,12 @@ export default function Homepage() {
     <>
       <div className="homepage">
         <div className="homepage-banner">
-          Youth STEMciety
+          <img className="backdrop" src={streaks} alt="" />
+          <div className="banner-text">
+            <h1>YOUTH STEMCIETY</h1>
+            <h2>Empower. Innovate. Succeed.</h2>
+          </div>
+          
         </div>
         <div className="homepage-content">
           <div className="founder-letter-div"> {/*styling needed*/}
@@ -130,10 +137,10 @@ export default function Homepage() {
                 </div>
               </div>
               <div className="instagram-posts">
-                <div className="instagram-post"><img src={post_1} alt="" /></div>
-                <div className="instagram-post"><img src={post_2} alt="" /></div>
-                <div className="instagram-post"><img src={post_3} alt="" /></div>
-                <div className="instagram-post"><img src={post_4} alt="" /></div>
+                <a href="https://www.instagram.com/p/DFLaglmRnRe/?img_index=1" target="_blank" className="instagram-post"><img className="post-image" src={post_1} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
+                <a href="https://www.instagram.com/p/DMOXmBPyXz5/?img_index=1" target="_blank"  className="instagram-post"><img className="post-image" src={post_2} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
+                <a href="https://www.instagram.com/p/DAO0T48Ra57/?img_index=1" target="_blank" className="instagram-post"><img className="post-image" src={post_3} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
+                <a href="https://www.instagram.com/p/DI1_q10RswP/?img_index=1" target="_blank" className="instagram-post"><img className="post-image" src={post_4} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
               </div>
             </div>
           </div>

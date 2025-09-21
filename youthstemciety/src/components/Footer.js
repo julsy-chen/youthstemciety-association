@@ -18,7 +18,7 @@ export default function Footer() {
     return(
         <div className="footer-content">
             <div className="socials">
-                <h3>SOCIALS</h3>
+                <h3>Socials</h3>
                 <div className="social-icons">
                     <a href="https://www.instagram.com/youthstemciety/" target="blank"><img className="social-icon" src={instagram}></img></a>
                     <a href="https://www.linkedin.com/company/youth-stemciety-association/" target="blank"><img className="social-icon" src={linkedin}></img></a>
@@ -26,7 +26,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="contacts">
-                <h3>CONTACT US</h3>
+                <h3>Contact Us</h3>
                 <div className="email-container">
                     <p>
                         Email us at <b>youthstemsociety@gmail.com</b>                   
@@ -35,7 +35,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="info">
-                <h3>INFO</h3>
+                <h3>Info</h3>
                 <NavLink 
                     to="/privacy-policy"
                     className={({ isActive }) => {

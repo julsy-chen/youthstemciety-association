@@ -1,0 +1,44 @@
+h1 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 750;
+  font-size: 5ch;
+  margin: 0;
+  color: #2A2D34;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  margin: 2vh 0 1vh;
+  color: #2A2D34;
+}
+
+h3 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  margin: 0;
+  font-size: 2.15ch;
+  color: #2A2D34;
+}
+
+p {
+  font-family: "Alice", sans-serif;
+  font-weight: normal;
+  font-size: 2ch;
+  line-height: 2.25;
+  color: #2A2D34;
+}
+
+.programs {
+    height: calc(98vh - 2.15ch - 1em - 1.5rem - 2rem - 2vh - 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ACD2C7;
+    color: #2A2D34;
+}

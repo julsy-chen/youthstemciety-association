@@ -1,9 +1,11 @@
+import "./Resources.css";
 
 export default function Resources() {
 
     return(
-        <div className="Resources">
-            <h1>Resources</h1>
+        <div className="resources">
+            <h1>STUDY RESOURCES</h1>
+            <h3>COMING SOON!!!</h3>
         </div>
     )
 }
