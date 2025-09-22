@@ -29,7 +29,7 @@ export default function Homepage() {
   const [openAnswer, setOpenAnswer] = useState([false, false, false, false])
 
   const offeredResourcesArray = [
-    ["MENTORSHIP PROGRAM", "Our peer mentorship program pairs high school students passionate about STEM with other dedicated students, providing support and encouragement."],
+    ["Mentorship Program", "Our peer mentorship program pairs high school students passionate about STEM with other dedicated students, providing support and encouragement."],
     ["Study Resources", "We provide helpful study guides/notes, practice problems, and curated learning materials to support students both inside and outside the classroom."],
     ["Student Blogs", "Our blog features student-written posts that share personal experiences, STEM insights, project highlights, and advice to inspire and connect with fellow learners."],
     ["Inclusive Community", "Our organization is aimed towards creating an inclusive and welcoming community for all followers and members. Our community welcomes people from all backgrounds and experiences."],
@@ -38,14 +38,16 @@ export default function Homepage() {
   const offeredResourcesBannerImage = [mentorship, resources, blogs, community]
 
   const handleClickArrow = (direction) => {
-    var resourceNumber = offeredResourceNumber+direction
-    if (resourceNumber < 0) {
-      resourceNumber += 4
-    } else if (resourceNumber > 3) {
-      resourceNumber -=4
-    }
-    setOfferedResourceNumber(resourceNumber)
-  }
+    setOfferedResourceNumber(prevNumber => {
+        let newNumber = prevNumber + direction;
+        if (newNumber < 0) {
+            newNumber = offeredResourcesArray.length - 1;
+        } else if (newNumber >= offeredResourcesArray.length) {
+            newNumber = 0;
+        }
+        return newNumber;
+    });
+}; 
 
   const handleClickFAQ = (questionNumber) => {
     setOpenAnswer(currentOpenAnswer => {
@@ -94,31 +96,80 @@ export default function Homepage() {
               </div>
           </div>
 
-          <div className="horizontal-scroll-offered-resources"> {/*styling needed*/}
-            <img className="offered-resources-information-image" src={offeredResourcesBannerImage[offeredResourceNumber]}/>
-            
-            <div className="offered-resources" >
-              <div>
-                <img className="offered-resources-left-button" src={left} onClick={() => handleClickArrow(-1)} />
-              </div>
-
-              <div className="offered-resources-information">
-                <div className="offered-resources-information-text">
-                  <h2>WHAT WE OFFER</h2>
-                  <hr className="solid"/>
-                  <h1>{offeredResourcesArray[offeredResourceNumber][0]}</h1>
-                  <p>{offeredResourcesArray[offeredResourceNumber][1]}</p>
+          <div className="horizontal-scroll-offered-resources">
+            <div className="slider-container">
+              {imageUrls.maps(offeredResourcesBannerImage => (
+                <img key={}
+              ))}
+              <img className="offered-resources-information-image" src={offeredResourcesBannerImage[offeredResourceNumber]}/>
+              <div className="offered-resources" >
+                <div className="offered-resources-information">
+                  <div className="offered-resources-information-text">
+                    <h2>WHAT WE OFFER</h2>
+                    <hr className="solid"/>
+                    <h1>{offeredResourcesArray[offeredResourceNumber][0]}</h1>
+                    <p>{offeredResourcesArray[offeredResourceNumber][1]}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div>
-                <img className="offered-resources-right-button" src={right} onClick={() => handleClickArrow(1)} />
               </div>
             </div>
             
-
+            <div className="buttonArea">
+              <img className="offered-resources-button left-button" src={left} onClick={() => handleClickArrow(-1)} alt="Previous" />
+              <div className="overlay left"/>
+            </div>
+            <div className="buttonArea">
+              <img className="offered-resources-button right-button" src={right} onClick={() => handleClickArrow(1)} alt="Next" />
+              <div className="overlay right"/>
+            </div>
           </div>
 
+          {/* <div className="horizontal-scroll-offered-resources">
+            <img
+              className="offered-resources-information-image"
+              src={offeredResourcesBannerImage[offeredResourceNumber]}
+              alt=""
+            />
+            <div className="buttonArea">
+              <img
+                className="offered-resources-button left-button"
+                src={left}
+                onClick={() => handleClickArrow(-1)}
+                alt="Previous"
+              />
+              <div className="overlay left" />
+            </div>
+            <div className="offered-resources-slider-container">
+              <div
+                className="offered-resources-slider-wrapper"
+                style={{ transform: `translateX(-${offeredResourceNumber * 100}%)` }}
+              >
+                {offeredResourcesArray.map((resource, index) => (
+                  <div className="offered-resource-slide" key={index}>
+                    <div className="offered-resources-information">
+                      <div className="offered-resources-information-text">
+                        <h2>WHAT WE OFFER</h2>
+                        <hr className="solid" />
+                        <h1>{resource[0]}</h1>
+                        <p>{resource[1]}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div> 
+            <div className="buttonArea">
+              <img
+                className="offered-resources-button right-button"
+                src={right}
+                onClick={() => handleClickArrow(1)}
+                alt="Next"
+              />
+              <div className="overlay right" />
+            </div>
+          </div>*/}
+
+        
           <HowToJoinUs />
           
           <div className="instagram-display">{/*let's do this last*/}
@@ -137,10 +188,22 @@ export default function Homepage() {
                 </div>
               </div>
               <div className="instagram-posts">
-                <a href="https://www.instagram.com/p/DFLaglmRnRe/?img_index=1" target="_blank" className="instagram-post"><img className="post-image" src={post_1} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
-                <a href="https://www.instagram.com/p/DMOXmBPyXz5/?img_index=1" target="_blank"  className="instagram-post"><img className="post-image" src={post_2} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
-                <a href="https://www.instagram.com/p/DAO0T48Ra57/?img_index=1" target="_blank" className="instagram-post"><img className="post-image" src={post_3} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
-                <a href="https://www.instagram.com/p/DI1_q10RswP/?img_index=1" target="_blank" className="instagram-post"><img className="post-image" src={post_4} alt="" /><img className="ig-display-post-icon" src={ig_post_icon} alt="" /></a>
+                <a href="https://www.instagram.com/p/DFLaglmRnRe/?img_index=1" target="_blank" className="instagram-post">
+                  <img className="post-image" src={post_1} alt="" />
+                  <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
+                </a>
+                <a href="https://www.instagram.com/p/DMOXmBPyXz5/?img_index=1" target="_blank"  className="instagram-post">
+                  <img className="post-image" src={post_2} alt="" />
+                  <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
+                </a>
+                <a href="https://www.instagram.com/p/DAO0T48Ra57/?img_index=1" target="_blank" className="instagram-post">
+                  <img className="post-image" src={post_3} alt="" />
+                  <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
+                </a>
+                <a href="https://www.instagram.com/p/DI1_q10RswP/?img_index=1" target="_blank" className="instagram-post">
+                  <img className="post-image" src={post_4} alt="" />
+                  <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
+                </a>
               </div>
             </div>
           </div>
@@ -152,11 +215,11 @@ export default function Homepage() {
                 <div className="faq-question-content">
                   <img 
                     className="faq-question-icon" 
-                    src={(openAnswer[0] ? collapse : expand)} 
+                    src={(openAnswer[0] ? collapse : expand)}
                     onClick={() => handleClickFAQ(0)}
                   />
                   <div className="faq-question-text">
-                    <h2 className="faq-question">
+                    <h2 className="faq-question" onClick={() => handleClickFAQ(0)}>
                       What type of STEM programs or events do you organize?
                     </h2>
                     <p className={"faq-answer " + (openAnswer[0] ? "open-answer" : "closed-answer")}>
@@ -164,14 +227,14 @@ export default function Homepage() {
                     </p>
                   </div>
                 </div>
-                <div className="faq-question-content">
+                <div className="faq-question-content" onClick={() => handleClickFAQ(1)}>
                   <img 
                     className="faq-question-icon" 
-                    src={expand} 
+                    src={expand}
                     onClick={() => handleClickFAQ(1)}
                   />
                   <div className="faq-question-text">
-                    <h2 className="faq-question">
+                    <h2 className="faq-question" >
                       Who are your programs for (age group, region, demographics)?
                     </h2>
                     <p className={"faq-answer " + (openAnswer[1] ? "open-answer" : "closed-answer")}>
@@ -186,7 +249,7 @@ export default function Homepage() {
                     onClick={() => handleClickFAQ(2)}
                   />
                   <div className="faq-question-text">
-                    <h2 className="faq-question">
+                    <h2 className="faq-question" onClick={() => handleClickFAQ(2)}>
                       How can students get involved or join your organization?
                     </h2>
                     <p className={"faq-answer " + (openAnswer[2] ? "open-answer" : "closed-answer")}>
@@ -214,7 +277,7 @@ export default function Homepage() {
                   </div>
                   <div className="question">
                     <p>Question</p>
-                    <input className="question" placeholder="How do I join Youth STEMciety Association?"/>
+                    <input className="question" placeholder="e.g. How do I join Youth STEMciety Association?"/>
                   </div>
                 </div>
                 <input type="submit"/>

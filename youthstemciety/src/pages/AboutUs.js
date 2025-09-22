@@ -49,24 +49,29 @@ export default function AboutUs() {
                 </div>
             </div>
             <div className="listed-offered-resources">
-                <h1>WHAT WE OFFER:</h1>
+                <h1>What We Offer:</h1>
                 <div className="listed-offered-resources-information">
                     <NavLink className="listed-offered-resource-information" id="mentorship-program-information" to="/programs">
                         <img className="listed-offered-resource-img" id="mentorship-program-img" src={mentor} alt="mentor" />
                         <div className="overlay"/>
-                        <h2>Mentorship<br/>Program</h2>
-                        <p>
-                            Our peer mentorship program pairs high school students passionate about STEM with other dedicated students, providing support and encouragement.
-                        </p>
+                        <div className="resource-text">
+                            <h2>Mentorship<br/>Program</h2>
+                            <p>
+                                Our peer mentorship program pairs high school students passionate about STEM with other dedicated students, providing support and encouragement.
+                            </p>
+                        </div>
+                        
                     </NavLink>
 
                     <NavLink className="listed-offered-resource-information" id="study-resources-information" to="/resources">
                         <img className="listed-offered-resource-img" id="study-resources-img" src={resources} alt="resources" />
                         <div className="overlay"/>
-                        <h2>Study<br/>Resources</h2>
-                        <p>
-                             We provide helpful study guides/notes, practice problems, and curated learning materials to support students both inside and outside the classroom.     
-                        </p>
+                        <div className="resource-text">
+                            <h2>Study<br/>Resources</h2>
+                            <p>
+                                We provide helpful study guides/notes, practice problems, and curated learning materials to support students both inside and outside the classroom.     
+                            </p>
+                        </div>
                     </NavLink>
 
                     <NavLink className="listed-offered-resource-information" id="student-blogs-information" to="/blogs">
@@ -81,16 +86,18 @@ export default function AboutUs() {
                     <NavLink className="listed-offered-resource-information" id="inclusive-community-information" to="https://discord.gg/eyZaTv4q" target="_blank">
                         <img className="listed-offered-resource-img" id="inclusive-community-img" src={community} alt="community" />
                         <div className="overlay"/>
-                        <h2>Inclusive<br/>Community</h2>
-                        <p>
-                            Our organization is aimed towards creating an inclusive and welcoming community for all followers and members. Our community welcomes people from all backgrounds and experiences. 
-                        </p>
+                        <div className="resource-text">
+                            <h2>Inclusive<br/>Community</h2>
+                            <p>
+                                Our organization is aimed towards creating an inclusive and welcoming community for all followers and members. Our community welcomes people from all backgrounds and experiences. 
+                            </p>
+                        </div>
                     </NavLink>
                 </div>
             </div>
             <div className="meet-our-founders">
                 <div>
-                    <h1>MEET OUR FOUNDERS</h1>
+                    <h1>Meet Our Founders</h1>
                     <div className="meet-our-founders-information">
                         <div className="founder-information" id="meet-anita">
                             <div className="founder-visual">

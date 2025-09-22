@@ -1,4 +1,4 @@
-h1 {
+/* h1 {
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 750;
@@ -31,7 +31,7 @@ p {
   font-size: 2ch;
   line-height: 2.25;
   color: #2A2D34;
-}
+} */
 
 .programs {
     height: calc(98vh - 2.15ch - 1em - 1.5rem - 2rem - 2vh - 3rem);

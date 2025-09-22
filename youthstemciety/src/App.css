@@ -71,6 +71,11 @@ p {
   line-height: 2.25;
 }
 
+/* img {
+  pointer-events: none;
+  user-select: none;
+} */
+
 
 .website-header {
   position: sticky;
@@ -152,6 +157,7 @@ p {
   height: 40%;
   box-sizing: border-box;
   position: relative;
+  user-select: none;
 }
 
 .backdrop {
@@ -160,6 +166,7 @@ p {
   display: block;
   overflow: clip;
   z-index: 1;
+  pointer-events: none;
 }
 
 .homepage-banner h1 {
@@ -214,6 +221,7 @@ p {
 .founder-letter-image-collection { /* div that contains all the images */
   display: flex;
   flex-direction: column;
+  user-select: none;
 }
 
 .founder-letter-image {
@@ -251,7 +259,7 @@ p {
 /* Parent Container */
 .horizontal-scroll-offered-resources {
   position: relative; /* Establishes positioning context for the image */
-  /* background-color: rgba(158, 181, 166, 0.641); */
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center; /* Center the content overlay */
@@ -268,19 +276,62 @@ p {
   height: 100%;
   object-fit: cover; /* Ensures the image covers the entire div */
   z-index: 1; /* Places the image on a lower layer */
-  opacity: 30%
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.7s ease-in-out;
 }
 
-/* Content Overlay (Buttons and Text) */
+.offered-resources-slider-container {
+  width: 100vw; /* Controls the visible width of your content */
+  z-index: 2; /* Ensures it's above the background image */
+}
+
+.offered-resources-slider-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* Add the transition for a smooth slide effect */
+    transition: transform 0.7s ease-in-out; 
+}
+
+.offered-resources-slider-wrapper .no-transition {
+  /* Disables the sliding animation */
+  transition: none;
+}
+
+.offered-resource-slide {
+    flex-shrink: 0;
+    min-width: 100%; /* Each slide takes up the full width */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.offered-resources-information {
+  text-align: center;
+  width: 100%; /* Fill the slide */
+}
+
+/* Content Overlay (ONLY Text) */
 .offered-resources {
   position: relative; /* Allows z-index to work */
   z-index: 2; /* Places content on top of the image */
   width: 100%;
-  padding: 0 8vw; /* Adds space from the edges */
+  /* padding: 0 8vw; */
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.left-button,
+.right-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Better for vertical centering */
+  z-index: 3; /* Keep buttons on the very top layer */
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -289,23 +340,58 @@ p {
   }
 }
 
-.offered-resources-left-button {
+/* .buttonArea {
+  position: relative
+} */
+
+.buttonArea img {
   width: 2.5rem;
   aspect-ratio: 1/1;
-  background-color: #686868;
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
+  z-index: 2;
+  pointer-events: auto;
 }
 
-.offered-resources-right-button {
+.left-button {
+  position: absolute;
+  left: 12rem;
+  top: 50%;
+}
+
+.right-button {
+  position: absolute;
+  right: 12rem;
+  top: 50%;
+}
+
+.buttonArea:hover .overlay {
+  background-color: rgba(192, 192, 192, 0.329); 
+  position: absolute;
+  z-index: 4;
   width: 2.5rem;
   aspect-ratio: 1/1;
   border-radius: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  pointer-events: none;
+}
+
+.buttonArea .overlay {
+  position: absolute;
+  transform: translateY(-50%);
+  z-index: 4;
+}
+
+.buttonArea .left {
+  top: 50%;
+  left: 12rem;
+}
+
+.buttonArea .right {
+  top: 50%;
+  right: 12rem;
 }
 
 .offered-resources-information {
@@ -329,7 +415,7 @@ p {
 
 /* How To Join Us */
 .how-to-be-involved-div {
-  padding: 2rem 10vw 0 10vw;
+  padding: 2rem 10vw;
   /* background-color: rgb(196, 217, 225);  */
   color: black;
 }
@@ -372,12 +458,21 @@ a {
   gap: 0.5rem;
 }
 
+.image-in-focus-container {
+  width: 24vw; 
+}
+
 .image-in-focus {
   width: 24vw;
   aspect-ratio: 1/1;
-  background-color: #686868;
 }
 
+.caption {
+  font-size: 1.5ch;
+  text-align: left;
+  margin-block-start: 0;
+  line-height: 1.25;
+}
 
 .smaller-images {
   display: flex;
@@ -385,12 +480,19 @@ a {
   width: 5.7vw;
   height: 100%;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .smaller-image {
   position: relative;
   width: 100%;
   aspect-ratio: 1/1;
+}
+
+.smaller-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is key to prevent stretching */
 }
 
 @media only screen and (max-width: 1000px) {
@@ -426,6 +528,17 @@ a {
   aspect-ratio: 1/1;
   background-color: #6868687a; 
   top: 0;
+}
+
+.active-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6); /* A semi-transparent white */
+  box-sizing: border-box;
+  pointer-events: none; /* Ensures the overlay doesn't block clicks */
 }
 
 .hiring-opportunities {
@@ -474,7 +587,7 @@ a {
 
 /* Instagram Display */
 .instagram-display {
-  background-color: #e8edde;
+  /* background-color: #deede8; */
   padding: 2rem 15vw;
 }
 
@@ -580,8 +693,12 @@ a {
 .faq {
   width: 100vw;
   box-sizing: border-box;
-  background-color: rgb(223, 235, 223);
   padding: 2rem 10vw;
+  background-color: #deede8; 
+}
+
+.faq h1 {
+  margin-block-end: 0.5em;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -597,7 +714,6 @@ a {
 }
 
 .faq-questions {
-  /* background-color: #ffffff; */
   width: 58%;
   text-align: left;
 }
@@ -605,6 +721,11 @@ a {
 .faq-question-content {
   display: flex;
   flex-direction: row;
+  pointer-events: all;
+}
+
+.faq-question-content h2 {
+  cursor: pointer;
 }
 
 .faq-question-icon {
@@ -613,18 +734,18 @@ a {
   height: 1rem;
   aspect-ratio: 1/1;
   margin-top: calc(2vh + 0.6em);
-  transition: all 0.5s ease-in
+  transition: all 0.5s ease-in;
 }
 
 .faq-answer {
   margin-top: 1rem;
+  pointer-events: none;
 }
 
 .open-answer {
   display: block;
   max-height: 1000px; /* A large enough value */
-  opacity: 1;
-  transition: all 0.3s ease-in
+  transition: all 0.3s ease-in;
 }
 
 .closed-answer {

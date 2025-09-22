@@ -7,18 +7,23 @@ import hiring from "../images/hiring.png";
 import ig_post_icon from "../images/ig-post-icon.png";
 
 export default function HowToJoinUs() {
-    const [imageInFocus, setImageInFocus] = useState(volunteer_1) 
-
     const volunteerImages = [volunteer_1, volunteer_2, volunteer_3]
+    const imageCaptions = [
+        "Contribute to a welcoming community of learners as mentors!",
+        "Speak at volunteer conventions, events and network with other organizations!",
+        "Assist in leading workshops and hands-on events for youth!"
+    ]
+
+    const [focusIndex, setFocusIndex] = useState(0)
 
     const handleClick = (id) => {
-        setImageInFocus(volunteerImages[id])
+        setFocusIndex(id)
     }
 
     return (
         <div className="how-to-be-involved-div">{/*styling needed*/}
             <div className="how-to-be-involved-heading"> 
-                <h1>INTERESTED IN JOINING US?</h1>
+                <h1>Interested In Joining Us?</h1>
                 <p>Join our <a id="discord-link" href="https://discord.gg/78bVwk5d">Discord</a> & follow us on <a id="instagram-link" href="https://www.instagram.com/youthstemciety/">Instagram</a>!</p>
             </div>
     
@@ -29,21 +34,25 @@ export default function HowToJoinUs() {
                         Join our team of dedicated volunteers and help empower the next generation of innovators! Whether you're a student, professional, or simply someone who believes in accessible education, we have meaningful opportunities for you. Volunteering with us is a great way to build your skills, expand your network, and support a cause that matters.
                     </p>
                 </div>
-                <div className="volunteer-opportunities-image-carousel"> {/* looks pretty silly when it's squished */}
-                    <img src={imageInFocus} className="image-in-focus"/> 
+                <div className="volunteer-opportunities-image-carousel">
+                    <div className="image-in-focus-container">
+                        <img src={volunteerImages[focusIndex]} className="image-in-focus"/>
+                        <p className="caption">{imageCaptions[focusIndex]}</p>
+                    </div>
                     <div className="smaller-images">
-                        <div className="smaller-image" id="0" onClick={() => handleClick(0)}> {/* add handleClick event */}
-                            <img className="smaller-image" src={volunteer_1}/>
+                        {volunteerImages.map((imageSrc, index) => (
+                            <div
+                            key={index}
+                            className="smaller-image"
+                            onClick={() => handleClick(index)}
+                            >
+                            <img src={imageSrc} alt={`Volunteer opportunity ${index + 1}`} />
+                            
+                            {/* This div provides the dark overlay on hover */}
                             <div className="overlay"/>
-                        </div>
-                        <div className="smaller-image" id="1" onClick={() => handleClick(1)}>
-                            <img className="smaller-image" src={volunteer_2}/>
-                            <div className="overlay"/>
-                        </div>
-                        <div className="smaller-image" id="2" onClick={() => handleClick(2)}>
-                            <img className="smaller-image" src={volunteer_3}/>
-                            <div className="overlay"/>
-                        </div>
+                            {index === focusIndex && <div className="active-thumbnail" />}
+                            </div>
+                        ))}
                     </div>
                 </div>
     
