@@ -4,14 +4,15 @@
             "title": "Inside the Criminal Mind: A Deep Dive into Forensic Psychology and Its Role in the Justice System",
             "date": "07/17/2025",
             "author": "Aasiyah Ahmed",
-            "content": "ladidadida",
+            "content": "This is **bold** and this is *italic*.\n\n- item 1\n- item 2\n\nInline `code`.", 
             "sources": ["https://carleton.ca/psychology/research/forensic/ (Carleton University hosts the Forensic Psychology Research Center)", "https://www.tuw.edu/psychology/forensic-psychology/ (Touro University Worldwide is an online university, has programs accredited by the Accreditation Council for Business Schools and Programs or ACBSP)" ]
         },
         {
             "title": "Second Science Blog",
             "date": "07/17/2025",
             "author": "Aasiyah Ahmed",
-            "content": "ladidadida",
+            "content":
+                "**This is bold text**\n\n *this should be italicized* \n\n ***this is both***\n\n >this should do something >",
             "sources": ["https://carleton.ca/psychology/research/forensic/ (Carleton University hosts the Forensic Psychology Research Center)", "https://www.tuw.edu/psychology/forensic-psychology/ (Touro University Worldwide is an online university, has programs accredited by the Accreditation Council for Business Schools and Programs or ACBSP)" ]
         }
     ],

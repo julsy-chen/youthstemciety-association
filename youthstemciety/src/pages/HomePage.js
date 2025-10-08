@@ -19,12 +19,53 @@ import collapse from '../images/collapse-icon.svg'
 import ig_post_icon from "../images/ig-post-icon.png";
 import streaks from "../images/streaks.png";
 
-import {useState} from 'react';
+import {useState, useCallback} from 'react';
 import HowToJoinUs from '../components/HowToJoinUs.js';
 
-
-
 export default function Homepage() {
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbzLw13c_5OayqmwUCqjjDKuGWxpqkJcjCSw3qiArNoGpFpCSlzJaOmghIMKoZ6A04KC/exec";
+
+  const [formData, setFormData] = useState({
+    Name: '',
+    Email: '',
+    Message: ''
+  });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('Submitting...');
+
+    // Create a FormData object to send
+    const data = new FormData();
+    for (const key in formData) {
+      data.append(key, formData[key]);
+    }
+
+    try {
+      // Use fetch to send the data
+      // Note: mode: 'no-cors' is often used to avoid CORS errors with Google Apps Script,
+      // but it means you won't get a readable JSON response back.
+      // If you need a response, you must handle CORS correctly in the script and app.
+      // For simple submission, this often works.
+      await fetch(scriptUrl, {
+        method: 'POST',
+        body: data,
+        // mode: 'no-cors' // Uncomment if you encounter CORS issues and don't need the response body
+      });
+
+      setStatus('Success! Your message has been sent.');
+      setFormData({ Name: '', Email: '', Message: '' }); // Clear form
+    } catch (error) {
+      console.error('Error!', error.message);
+      setStatus('Error submitting form.');
+    }
+  };
+
   const [offeredResourceNumber, setOfferedResourceNumber] = useState(0)
   const [openAnswer, setOpenAnswer] = useState([false, false, false, false])
 
@@ -47,7 +88,7 @@ export default function Homepage() {
         }
         return newNumber;
     });
-}; 
+  }; 
 
   const handleClickFAQ = (questionNumber) => {
     setOpenAnswer(currentOpenAnswer => {
@@ -98,9 +139,6 @@ export default function Homepage() {
 
           <div className="horizontal-scroll-offered-resources">
             <div className="slider-container">
-              {imageUrls.maps(offeredResourcesBannerImage => (
-                <img key={}
-              ))}
               <img className="offered-resources-information-image" src={offeredResourcesBannerImage[offeredResourceNumber]}/>
               <div className="offered-resources" >
                 <div className="offered-resources-information">
@@ -258,30 +296,55 @@ export default function Homepage() {
                   </div>
                 </div>
               </div>
-              <div className="faq-ask-question">
+              
+              <form className="faq-ask-question" onSubmit={handleSubmit}>
                 <h2>Have another question? Let us know!</h2>
                 <div className="input-fields">
                   <div className="full-name">
                     <div className="first-name">
                       <p>First Name</p>
-                      <input className="first-name" placeholder="Jane"/>
+                      <input
+                        name="FirstName"
+                        className="first-name"
+                        value={formData.FirstName}
+                        onChange={handleChange}
+                        placeholder="Jane"
+                      />
                     </div>
                     <div className="last-name">
                       <p>Last Name</p>
-                      <input placeholder="Doe"/>
+                      <input
+                        name="LastName" 
+                        value={formData.LastName}
+                        onChange={handleChange}
+                        placeholder="Doe"
+                      />
                     </div>
                   </div>
                   <div className="email">
                     <p>Email</p>
-                    <input className="email" placeholder="legitemail@gmail.com"/>
+                    <input
+                      name="Email"
+                      className="email"
+                      value={formData.Email}
+                      onChange={handleChange} 
+                      placeholder="legitemail@gmail.com"
+                    />
                   </div>
                   <div className="question">
                     <p>Question</p>
-                    <input className="question" placeholder="e.g. How do I join Youth STEMciety Association?"/>
+                    <input 
+                      name="Question"
+                      className="question"
+                      value={formData.Question}
+                      onChange={handleChange}
+                      placeholder="e.g. How do I join Youth STEMciety Association?"
+                    />
                   </div>
                 </div>
-                <input type="submit"/>
-              </div>
+                <button type="submit"> Submit </button>
+              </form>
+
             </div>
           </div>
         </div>

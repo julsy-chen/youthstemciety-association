@@ -4,7 +4,12 @@ import blogData from './blogs.json';
 import commentIcon from '../images/speech-bubble.png';
 import streaks from '../images/streaks.png'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkBreaks from "remark-breaks";
+import rehypeSanitize from "rehype-sanitize";
+import { useNavigate } from 'react-router-dom';
 
 export default function Blog() {
     const [currentTopic, setCurrentTopic] = useState("Science");
@@ -19,6 +24,15 @@ export default function Blog() {
     const handleBlogClick = (blog) => {
         setCurrentBlog(blog);
     };
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+    const lastPath = localStorage.getItem('lastPath');
+    if (lastPath) {
+        navigate(lastPath);
+    }
+    }, [navigate]);
 
     return(
         <div className="Blog">
@@ -60,8 +74,16 @@ export default function Blog() {
                     </div>
                     <hr className="solid"/>
                     <div className="blog-text">
-                        <p>{currentBlog?.content}</p>
+                        {currentBlog && (
+                            <ReactMarkdown
+                                remarkPlugins={[remarkGfm, remarkBreaks]}   // GFM + single \n as <br>
+                                rehypePlugins={[rehypeSanitize]}           // XSS safety
+                            >
+                                {currentBlog.content}
+                            </ReactMarkdown>
+                        )}
                     </div>
+
                 </div>
                 <div className="topics-and-comments">
                     <div className="topic-selection">
