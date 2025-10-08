@@ -714,7 +714,7 @@ a {
 }
 
 .faq-questions {
-  width: 58%;
+  width: 50%;
   text-align: left;
 }
 
@@ -770,10 +770,16 @@ a {
   height: 1.75rem;
   width: 100%;
   font-family: "Alice", sans-serif;
+  border-radius: 8px;
+}
+
+.input-fields:focus {
+  border-color: #ACD2C7;
 }
 
 .input-fields p {
   margin: 0;
+  padding-left: 2px;
   font-size: 1.5ch;
   line-height: 1.5;
 }
@@ -781,6 +787,10 @@ a {
 .full-name {
   display: flex;
   gap: 1rem;
+}
+
+form {
+ font-family: "Alice", sans-serif; 
 }
 
 

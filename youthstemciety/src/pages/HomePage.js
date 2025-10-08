@@ -265,14 +265,14 @@ export default function Homepage() {
                     </p>
                   </div>
                 </div>
-                <div className="faq-question-content" onClick={() => handleClickFAQ(1)}>
+                <div className="faq-question-content">
                   <img 
                     className="faq-question-icon" 
-                    src={expand}
+                    src={(openAnswer[1] ? collapse : expand)}
                     onClick={() => handleClickFAQ(1)}
                   />
                   <div className="faq-question-text">
-                    <h2 className="faq-question" >
+                    <h2 className="faq-question" onClick={() => handleClickFAQ(1)}>
                       Who are your programs for (age group, region, demographics)?
                     </h2>
                     <p className={"faq-answer " + (openAnswer[1] ? "open-answer" : "closed-answer")}>
@@ -283,7 +283,7 @@ export default function Homepage() {
                 <div className="faq-question-content">
                   <img 
                     className="faq-question-icon" 
-                    src={expand} 
+                    src={(openAnswer[2] ? collapse : expand)}
                     onClick={() => handleClickFAQ(2)}
                   />
                   <div className="faq-question-text">
