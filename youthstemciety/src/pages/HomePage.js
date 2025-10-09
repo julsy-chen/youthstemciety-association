@@ -213,7 +213,7 @@ export default function Homepage() {
           <div className="instagram-display">{/*let's do this last*/}
             <div className="instagram-display-heading">
               <h1>OUR INSTAGRAM</h1>
-              <p>Follow us <a href="https://www.instagram.com/youthstemciety/" target="blank">@youthstemciety</a></p>
+              <p>Follow us <a href="https://www.instagram.com/youthstemciety/" target="_blank" rel="noreferrer">@youthstemciety</a></p>
             </div>
             <div className="instagram-content" >
               <div className="instagram-profile-banner">
@@ -226,19 +226,19 @@ export default function Homepage() {
                 </div>
               </div>
               <div className="instagram-posts">
-                <a href="https://www.instagram.com/p/DFLaglmRnRe/?img_index=1" target="_blank" className="instagram-post">
+                <a href="https://www.instagram.com/p/DFLaglmRnRe/?img_index=1" target="_blank" rel="noreferrer" className="instagram-post">
                   <img className="post-image" src={post_1} alt="" />
                   <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
                 </a>
-                <a href="https://www.instagram.com/p/DMOXmBPyXz5/?img_index=1" target="_blank"  className="instagram-post">
+                <a href="https://www.instagram.com/p/DMOXmBPyXz5/?img_index=1" target="_blank" rel="noreferrer" className="instagram-post">
                   <img className="post-image" src={post_2} alt="" />
                   <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
                 </a>
-                <a href="https://www.instagram.com/p/DAO0T48Ra57/?img_index=1" target="_blank" className="instagram-post">
+                <a href="https://www.instagram.com/p/DAO0T48Ra57/?img_index=1" target="_blank" rel="noreferrer" className="instagram-post">
                   <img className="post-image" src={post_3} alt="" />
                   <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
                 </a>
-                <a href="https://www.instagram.com/p/DI1_q10RswP/?img_index=1" target="_blank" className="instagram-post">
+                <a href="https://www.instagram.com/p/DI1_q10RswP/?img_index=1" target="_blank" rel="noreferrer" className="instagram-post">
                   <img className="post-image" src={post_4} alt="" />
                   <img className="ig-display-post-icon" src={ig_post_icon} alt="" />
                 </a>

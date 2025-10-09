@@ -20,9 +20,9 @@ export default function Footer() {
             <div className="socials">
                 <h3>Socials</h3>
                 <div className="social-icons">
-                    <a href="https://www.instagram.com/youthstemciety/" target="blank"><img className="social-icon" src={instagram}></img></a>
-                    <a href="https://www.linkedin.com/company/youth-stemciety-association/" target="blank"><img className="social-icon" src={linkedin}></img></a>
-                    <a href="https://discord.gg/eyZaTv4q" target="blank"><img className="social-icon" src={discord}></img></a>
+                    <a href="https://www.instagram.com/youthstemciety/" target="_blank" rel="noreferrer"><img className="social-icon" src={instagram}></img></a>
+                    <a href="https://www.linkedin.com/company/youth-stemciety-association/" target="_blank" rel="noreferrer"><img className="social-icon" src={linkedin}></img></a>
+                    <a href="https://discord.gg/eyZaTv4q" target="_blank" rel="noreferrer"><img className="social-icon" src={discord}></img></a>
                 </div>
             </div>
             <div className="contacts">

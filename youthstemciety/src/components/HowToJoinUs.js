@@ -74,7 +74,7 @@ export default function HowToJoinUs() {
                 </div>
                 <div className="hiring-post">
                     <img className="ig-post-icon" src={ig_post_icon} alt="" />
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaVDgxW7_r0miYyXZ-zW073o3QQZhtgARHVYuRBc4ECdrydQ/viewform" target="_blank"><img className="hiring-post-image" src={hiring} alt="hiring-post-image" /></a> 
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaVDgxW7_r0miYyXZ-zW073o3QQZhtgARHVYuRBc4ECdrydQ/viewform" target="_blank" rel="noreferrer"><img className="hiring-post-image" src={hiring} alt="hiring-post-image" /></a> 
                 </div>
                 
             </div>

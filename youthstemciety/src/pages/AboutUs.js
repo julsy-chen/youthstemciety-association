@@ -83,7 +83,7 @@ export default function AboutUs() {
                         </p>
                     </NavLink>
 
-                    <NavLink className="listed-offered-resource-information" id="inclusive-community-information" to="https://discord.gg/eyZaTv4q" target="_blank">
+                    <NavLink className="listed-offered-resource-information" id="inclusive-community-information" to="https://discord.gg/eyZaTv4q" target="_blank" rel="noreferrer">
                         <img className="listed-offered-resource-img" id="inclusive-community-img" src={community} alt="community" />
                         <div className="overlay"/>
                         <div className="resource-text">
