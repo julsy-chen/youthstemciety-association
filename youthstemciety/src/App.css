@@ -882,6 +882,10 @@ form {
   margin-top: 0;
 }
 
+.submit-status {
+  margin-top: 0.25rem;
+}
+
 /* info — privacy policy */
 .info {
   flex-direction: column;

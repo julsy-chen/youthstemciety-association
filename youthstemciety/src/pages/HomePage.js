@@ -353,7 +353,7 @@ export default function Homepage() {
                   </div>
                   <button type="submit"> Submit </button>
                   {/* FIX 3: Display status message */}
-                  {status && <p>{status}</p>}`
+                  {status && <p className="submit-status">{status}</p>}`
 
                 </form>
               </div>
