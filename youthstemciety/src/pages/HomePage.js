@@ -141,7 +141,7 @@ export default function Homepage() {
 
           <div className="horizontal-scroll-offered-resources">
             <div className="slider-container">
-              <img className="offered-resources-information-image" src={offeredResourcesBannerImage[offeredResourceNumber]}/>
+              <img className="offered-resources-information-image" src={offeredResourcesBannerImage[offeredResourceNumber]} alt=""/>
               <div className="offered-resources" >
                 <div className="offered-resources-information">
                   <div className="offered-resources-information-text">
@@ -257,6 +257,7 @@ export default function Homepage() {
                     className="faq-question-icon" 
                     src={(openAnswer[0] ? collapse : expand)}
                     onClick={() => handleClickFAQ(0)}
+                    alt=""
                   />
                   <div className="faq-question-text">
                     <h2 className="faq-question" onClick={() => handleClickFAQ(0)}>
@@ -272,6 +273,7 @@ export default function Homepage() {
                     className="faq-question-icon" 
                     src={(openAnswer[1] ? collapse : expand)}
                     onClick={() => handleClickFAQ(1)}
+                    alt=""
                   />
                   <div className="faq-question-text">
                     <h2 className="faq-question" onClick={() => handleClickFAQ(1)}>
@@ -287,6 +289,7 @@ export default function Homepage() {
                     className="faq-question-icon" 
                     src={(openAnswer[2] ? collapse : expand)}
                     onClick={() => handleClickFAQ(2)}
+                    alt=""
                   />
                   <div className="faq-question-text">
                     <h2 className="faq-question" onClick={() => handleClickFAQ(2)}>

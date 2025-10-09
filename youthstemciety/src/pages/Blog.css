@@ -115,7 +115,8 @@ ul, ol {
 
 .topic-list {
     text-align: left;
-    margin-left: 5em;
+    margin-left: 7rem;
+    padding-left: 0.1rem;
     list-style-type: none;
     place-content: center;
 }
