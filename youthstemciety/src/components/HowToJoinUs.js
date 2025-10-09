@@ -36,7 +36,7 @@ export default function HowToJoinUs() {
                 </div>
                 <div className="volunteer-opportunities-image-carousel">
                     <div className="image-in-focus-container">
-                        <img src={volunteerImages[focusIndex]} className="image-in-focus"/>
+                        <img src={volunteerImages[focusIndex]} className="image-in-focus" alt=""/>
                         <p className="caption">{imageCaptions[focusIndex]}</p>
                     </div>
                     <div className="smaller-images">
