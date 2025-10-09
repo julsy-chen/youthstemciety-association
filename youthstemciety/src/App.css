@@ -693,7 +693,7 @@ a {
 .faq {
   width: 100vw;
   box-sizing: border-box;
-  padding: 2rem 10vw;
+  padding: 2rem 10vw 0 10vw;
   background-color: #deede8; 
 }
 
@@ -755,8 +755,15 @@ a {
   transition: all 0.3s ease-out;
 }
 
-.faq-ask-question {
+.form-container {
+  /* background-color: #ffffff; */
   width: 40%;
+  justify-self: center;
+  padding: 0 3rem 2rem 3rem;
+}
+
+.faq-ask-question {
+  width: 100%;
   text-align: left;
 }
 
@@ -767,10 +774,14 @@ a {
 }
 
 .input-fields input {
-  height: 1.75rem;
+  height: 2rem;
   width: 100%;
   font-family: "Alice", sans-serif;
-  border-radius: 8px;
+  border-radius: 3px;
+  border-width: 1.5px;
+  border-color: #96BCB0;
+  font-size: 1.75ch;
+  text-indent: 0.5ch;
 }
 
 .input-fields:focus {
@@ -780,13 +791,27 @@ a {
 .input-fields p {
   margin: 0;
   padding-left: 2px;
-  font-size: 1.5ch;
+  font-size: 1.75ch;
   line-height: 1.5;
 }
 
 .full-name {
   display: flex;
   gap: 1rem;
+}
+
+.form-container button {
+  font-family: "Alice", sans-serif;
+  background-color: #ACD2C7;
+  height: 2rem;
+  width: 5rem;
+  border-width: 1.5px;
+  border-color: #96BCB0;
+  margin-top: 1rem;
+}
+
+.form-container button:hover {
+  background-color: #BAD9D0;
 }
 
 form {

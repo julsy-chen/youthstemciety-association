@@ -19,16 +19,17 @@ import collapse from '../images/collapse-icon.svg'
 import ig_post_icon from "../images/ig-post-icon.png";
 import streaks from "../images/streaks.png";
 
-import {useState, useCallback} from 'react';
+import {useState} from 'react';
 import HowToJoinUs from '../components/HowToJoinUs.js';
 
 export default function Homepage() {
   const scriptUrl = "https://script.google.com/macros/s/AKfycbzLw13c_5OayqmwUCqjjDKuGWxpqkJcjCSw3qiArNoGpFpCSlzJaOmghIMKoZ6A04KC/exec";
 
   const [formData, setFormData] = useState({
-    Name: '',
+    FirstName: '',
+    LastName: '',
     Email: '',
-    Message: ''
+    Question: ''
   });
   const [status, setStatus] = useState('');
 
@@ -40,32 +41,33 @@ export default function Homepage() {
     e.preventDefault();
     setStatus('Submitting...');
 
-    // Create a FormData object to send
     const data = new FormData();
-    for (const key in formData) {
-      data.append(key, formData[key]);
-    }
+    // Map state to the field names expected by your Google Sheet
+    data.append('Name', `${formData.FirstName} ${formData.LastName}`);
+    data.append('Email', formData.Email);
+    data.append('Message', formData.Question); // Assuming your sheet has a 'Message' column
 
     try {
-      // Use fetch to send the data
-      // Note: mode: 'no-cors' is often used to avoid CORS errors with Google Apps Script,
-      // but it means you won't get a readable JSON response back.
-      // If you need a response, you must handle CORS correctly in the script and app.
-      // For simple submission, this often works.
       await fetch(scriptUrl, {
         method: 'POST',
         body: data,
-        // mode: 'no-cors' // Uncomment if you encounter CORS issues and don't need the response body
       });
 
       setStatus('Success! Your message has been sent.');
-      setFormData({ Name: '', Email: '', Message: '' }); // Clear form
+      // Clear the form fields after submission
+      setFormData({
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        Question: ''
+      });
     } catch (error) {
       console.error('Error!', error.message);
       setStatus('Error submitting form.');
     }
   };
 
+  
   const [offeredResourceNumber, setOfferedResourceNumber] = useState(0)
   const [openAnswer, setOpenAnswer] = useState([false, false, false, false])
 
@@ -297,53 +299,64 @@ export default function Homepage() {
                 </div>
               </div>
               
-              <form className="faq-ask-question" onSubmit={handleSubmit}>
-                <h2>Have another question? Let us know!</h2>
-                <div className="input-fields">
-                  <div className="full-name">
-                    <div className="first-name">
-                      <p>First Name</p>
+              <div className="form-container">
+                <form className="faq-ask-question" onSubmit={handleSubmit}>
+                  
+                  <h2>Have another question? Let us know!</h2>
+                  <div className="input-fields">
+                    <div className="full-name">
+                      <div className="first-name">
+                        <p>First Name</p>
+                        <input
+                          name="FirstName"
+                          className="first-name"
+                          value={formData.FirstName} // Connect value
+                          onChange={handleChange}
+                          placeholder="Jane"
+                          required // Good practice to add required
+                        />
+                      </div>
+                      <div className="last-name">
+                        <p>Last Name</p>
+                        <input
+                          name="LastName"
+                          value={formData.LastName} // Connect value
+                          onChange={handleChange}
+                          placeholder="Doe"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="email">
+                      <p>Email</p>
                       <input
-                        name="FirstName"
-                        className="first-name"
-                        value={formData.FirstName}
+                        type="email" // Use type="email" for validation
+                        name="Email"
+                        className="email"
+                        value={formData.Email}
                         onChange={handleChange}
-                        placeholder="Jane"
+                        placeholder="legitemail@gmail.com"
+                        required
                       />
                     </div>
-                    <div className="last-name">
-                      <p>Last Name</p>
-                      <input
-                        name="LastName" 
-                        value={formData.LastName}
+                    <div className="question">
+                      <p>Question</p>
+                      <input // Use a textarea for multi-line questions
+                        name="Question"
+                        className="question"
+                        value={formData.Question}
                         onChange={handleChange}
-                        placeholder="Doe"
+                        placeholder="e.g. How do I join Youth STEMciety Association?"
+                        required
                       />
                     </div>
                   </div>
-                  <div className="email">
-                    <p>Email</p>
-                    <input
-                      name="Email"
-                      className="email"
-                      value={formData.Email}
-                      onChange={handleChange} 
-                      placeholder="legitemail@gmail.com"
-                    />
-                  </div>
-                  <div className="question">
-                    <p>Question</p>
-                    <input 
-                      name="Question"
-                      className="question"
-                      value={formData.Question}
-                      onChange={handleChange}
-                      placeholder="e.g. How do I join Youth STEMciety Association?"
-                    />
-                  </div>
-                </div>
-                <button type="submit"> Submit </button>
-              </form>
+                  <button type="submit"> Submit </button>
+                  {/* FIX 3: Display status message */}
+                  {status && <p>{status}</p>}`
+
+                </form>
+              </div>
 
             </div>
           </div>

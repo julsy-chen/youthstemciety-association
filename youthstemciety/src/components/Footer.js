@@ -20,9 +20,9 @@ export default function Footer() {
             <div className="socials">
                 <h3>Socials</h3>
                 <div className="social-icons">
-                    <a href="https://www.instagram.com/youthstemciety/" target="_blank" rel="noreferrer"><img className="social-icon" src={instagram}></img></a>
-                    <a href="https://www.linkedin.com/company/youth-stemciety-association/" target="_blank" rel="noreferrer"><img className="social-icon" src={linkedin}></img></a>
-                    <a href="https://discord.gg/eyZaTv4q" target="_blank" rel="noreferrer"><img className="social-icon" src={discord}></img></a>
+                    <a href="https://www.instagram.com/youthstemciety/" target="_blank" rel="noreferrer"><img className="social-icon" src={instagram} alt="instagram"></img></a>
+                    <a href="https://www.linkedin.com/company/youth-stemciety-association/" target="_blank" rel="noreferrer"><img className="social-icon" src={linkedin} alt="linked in"></img></a>
+                    <a href="https://discord.gg/eyZaTv4q" target="_blank" rel="noreferrer"><img className="social-icon" src={discord} alt="discord"></img></a>
                 </div>
             </div>
             <div className="contacts">
@@ -31,7 +31,7 @@ export default function Footer() {
                     <p>
                         Email us at <b>youthstemsociety@gmail.com</b>                   
                     </p>
-                    <img src={copy} onClick={copyEmail}/>
+                    <img src={copy} onClick={copyEmail} alt="copy email"/>
                 </div>
             </div>
             <div className="info">
