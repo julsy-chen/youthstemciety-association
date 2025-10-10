@@ -22,7 +22,7 @@ export default function Footer() {
                 <div className="social-icons">
                     <a href="https://www.instagram.com/youthstemciety/" target="_blank" rel="noreferrer"><img className="social-icon" src={instagram} alt="instagram"></img></a>
                     <a href="https://www.linkedin.com/company/youth-stemciety-association/" target="_blank" rel="noreferrer"><img className="social-icon" src={linkedin} alt="linked in"></img></a>
-                    <a href="https://discord.gg/eyZaTv4q" target="_blank" rel="noreferrer"><img className="social-icon" src={discord} alt="discord"></img></a>
+                    <a href="https://discord.gg/YzcuVU7sdS" target="_blank" rel="noreferrer"><img className="social-icon" src={discord} alt="discord"></img></a>
                 </div>
             </div>
             <div className="contacts">

@@ -39,8 +39,8 @@ export default function AboutUs() {
                             </p>
                         </div>
                         <div className="about-us-stats">
-                            <p className="about-us-stat" id='about-us-followers-stat'>1000+<br/>FOLLOWERS</p>
-                            <p className="about-us-stat" id='about-us-accounts-reached-stat'>32 000+<br/>ACCOUNTS REACHED</p>
+                            <p className="about-us-stat" id='about-us-followers-stat'>1500+<br/>FOLLOWERS</p>
+                            <p className="about-us-stat" id='about-us-accounts-reached-stat'>65 000+<br/>ACCOUNTS REACHED</p>
                         </div>
                     </div>
                     <div className="about-us-img">
