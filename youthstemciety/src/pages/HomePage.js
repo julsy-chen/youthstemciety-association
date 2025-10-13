@@ -163,52 +163,6 @@ export default function Homepage() {
               <div className="overlay right"/>
             </div>
           </div>
-
-          {/* <div className="horizontal-scroll-offered-resources">
-            <img
-              className="offered-resources-information-image"
-              src={offeredResourcesBannerImage[offeredResourceNumber]}
-              alt=""
-            />
-            <div className="buttonArea">
-              <img
-                className="offered-resources-button left-button"
-                src={left}
-                onClick={() => handleClickArrow(-1)}
-                alt="Previous"
-              />
-              <div className="overlay left" />
-            </div>
-            <div className="offered-resources-slider-container">
-              <div
-                className="offered-resources-slider-wrapper"
-                style={{ transform: `translateX(-${offeredResourceNumber * 100}%)` }}
-              >
-                {offeredResourcesArray.map((resource, index) => (
-                  <div className="offered-resource-slide" key={index}>
-                    <div className="offered-resources-information">
-                      <div className="offered-resources-information-text">
-                        <h2>WHAT WE OFFER</h2>
-                        <hr className="solid" />
-                        <h1>{resource[0]}</h1>
-                        <p>{resource[1]}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div> 
-            <div className="buttonArea">
-              <img
-                className="offered-resources-button right-button"
-                src={right}
-                onClick={() => handleClickArrow(1)}
-                alt="Next"
-              />
-              <div className="overlay right" />
-            </div>
-          </div>*/}
-
         
           <HowToJoinUs />
           

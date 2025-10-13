@@ -9,15 +9,67 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkBreaks from "remark-breaks";
 import rehypeSanitize from "rehype-sanitize";
-import { useNavigate } from 'react-router-dom';
 
 export default function Blog() {
-    const [currentTopic, setCurrentTopic] = useState("Science");
-    const [currentBlog, setCurrentBlog] = useState(blogData.Science[0]); // Initialize with the first science blog
+    // Step 1: Initialize state from localStorage
+    const [currentTopic, setCurrentTopic] = useState(() => {
+        return localStorage.getItem('currentTopic') || 'Science';
+    });
+
+    const [currentBlog, setCurrentBlog] = useState(() => {
+        const savedBlogTitle = localStorage.getItem('currentBlogTitle');
+        const topicToSearch = localStorage.getItem('currentTopic') || 'Science';
+
+        if (savedBlogTitle && blogData[topicToSearch]) {
+            const savedBlog = blogData[topicToSearch].find(blog => blog.title === savedBlogTitle);
+            if (savedBlog) return savedBlog;
+        }
+
+        return blogData[topicToSearch][0];
+    });
+
+    const [blogContent, setBlogContent] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        if (currentBlog?.filePath) {
+            // This blog's content is in a separate file, so we fetch it.
+            fetch(process.env.PUBLIC_URL + currentBlog.filePath) // Use PUBLIC_URL for deployment
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.text();
+                })
+                .then(text => {
+                    setBlogContent(text);
+                    setIsLoading(false);
+                })
+                .catch(error => {
+                    console.error("Error fetching blog content:", error);
+                    setBlogContent("Failed to load blog post.");
+                    setIsLoading(false);
+                });
+        } else if (currentBlog?.content) {
+            // This blog's content is directly in the JSON, so we just use it.
+            setBlogContent(currentBlog.content);
+            setIsLoading(false);
+        } else {
+            // Handle cases where a blog might not have content or a file path
+            setBlogContent('');
+            setIsLoading(false);
+        }
+    }, [currentBlog]);
+
+    // Step 2: Save state changes to localStorage
+    useEffect(() => {
+        localStorage.setItem('currentTopic', currentTopic);
+        if (currentBlog) {
+            localStorage.setItem('currentBlogTitle', currentBlog.title);
+        }
+    }, [currentTopic, currentBlog]);
 
     const handleTopicClick = (topic) => {
         setCurrentTopic(topic);
-        // Reset the current blog to the first one of the newly selected topic
         setCurrentBlog(blogData[topic] ? blogData[topic][0] : null);
     };
 
@@ -25,14 +77,7 @@ export default function Blog() {
         setCurrentBlog(blog);
     };
 
-    const navigate = useNavigate();
-
-    useEffect(() => {
-    const lastPath = localStorage.getItem('lastPath');
-    if (lastPath) {
-        navigate(lastPath);
-    }
-    }, [navigate]);
+    // Step 3: The navigate logic has been removed.
 
     return(
         <div className="Blog">
@@ -50,11 +95,9 @@ export default function Blog() {
                 <div className="topic-all-blogs">
                     <h2>Our {currentTopic} Blogs</h2>
                     <div>
-                        {/* Use the currentTopic state to access the correct array from blogData */}
                         {blogData[currentTopic] && blogData[currentTopic].map((blog, index) => (
                             <li 
                                 key={index}
-                                // Add an onClick handler to update the current blog when a list item is clicked
                                 onClick={() => handleBlogClick(blog)}
                                 className={currentBlog && currentBlog.title === blog.title ? "active-blog-item" : ""}
                             >
@@ -63,49 +106,73 @@ export default function Blog() {
                         ))}
                     </div>
                 </div>
-                <div className="blog-content">
-                    <div className="blog-title">
-                        <h1>
-                            {currentBlog?.title}
-                        </h1>
-                    </div>
-                    <div className="blog-numbers">
-                        <p>{currentBlog?.date} — {currentBlog?.author}</p>
-                    </div>
-                    <hr className="solid"/>
-                    <div className="blog-text">
-                        {currentBlog && (
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm, remarkBreaks]}   // GFM + single \n as <br>
-                                rehypePlugins={[rehypeSanitize]}           // XSS safety
-                            >
-                                {currentBlog.content}
-                            </ReactMarkdown>
-                        )}
-                    </div>
 
+                <div className="blog-content">
+                    
+                    {currentBlog ? (
+                        <>
+                            <div className="blog-title">
+                                <h1>{currentBlog.title}</h1>
+                            </div>
+                            <div className="blog-numbers">
+                                <p>{currentBlog.date} — {currentBlog.author}</p>
+                            </div>
+                            <hr className="solid"/>
+                            <div className="blog-text">
+                                {isLoading ? (
+                                        <p>Loading...</p>
+                                    ) : (
+                                        <ReactMarkdown
+                                            remarkPlugins={[remarkGfm, remarkBreaks]}
+                                            rehypePlugins={[rehypeSanitize]}
+                                        >
+                                            {blogContent}
+                                        </ReactMarkdown>
+                                )}
+                            </div>
+                            <div className="blog-citations">
+                                {currentBlog?.sources && currentBlog.sources.length > 0 && (
+                                    <>
+                                        <h2>Sources</h2>
+                                        <ul>
+                                            {currentBlog.sources.map((source, index) => (
+                                                <li key={index}>{source}</li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                )}
+                            </div>
+                        </>
+                    ) : (
+                        // If no blog is selected (because the topic is empty), show this placeholder
+                        <div className="no-blogs-placeholder-main">
+                            <h1>Coming Soon!</h1>
+                            <p>There are no blogs in our {currentTopic} category yet, but our team is hard at work. Please check back later for new content!</p>
+                        </div>
+                    )}
                 </div>
+
                 <div className="topics-and-comments">
                     <div className="topic-selection">
                         <h2>Topics</h2>
                         <ul className ="topic-list">
                             <li onClick={() => handleTopicClick("Science")}>
-                                <p className={(currentTopic == "Science" ? "current-topic" : "other-topic")}>
+                                <p className={(currentTopic === "Science" ? "current-topic" : "other-topic")}>
                                     Science
                                 </p>
                             </li>
                             <li onClick={() => handleTopicClick("Technology")}>
-                                <p className={(currentTopic == "Technology" ? "current-topic" : "other-topic")}>
+                                <p className={(currentTopic === "Technology" ? "current-topic" : "other-topic")}>
                                     Technology
                                 </p>
                             </li>
                             <li onClick={() => handleTopicClick("Engineering")}>
-                                <p className={(currentTopic == "Engineering" ? "current-topic" : "other-topic")}>
+                                <p className={(currentTopic === "Engineering" ? "current-topic" : "other-topic")}>
                                     Engineering
                                 </p>
                             </li>
                             <li onClick={() => handleTopicClick("Mathematics")}>
-                                <p className={(currentTopic == "Mathematics" ? "current-topic" : "other-topic")}>
+                                <p className={(currentTopic === "Mathematics" ? "current-topic" : "other-topic")}>
                                     Mathematics
                                 </p>
                             </li>

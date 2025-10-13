@@ -129,3 +129,22 @@ ul, ol {
 .current-topic {
     color: #96BCB0;
 }
+
+.no-blogs-placeholder-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  border: 2px dashed #d1d1d1; /* A soft dashed border */
+  border-radius: 8px;
+  color: #777;
+  background-color: #fafafa; /* A very light grey background */
+}
+
+.no-blogs-placeholder-main p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  line-height: 1.6;
+}
